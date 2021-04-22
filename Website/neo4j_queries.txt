@@ -1,0 +1,34 @@
+call n10s.rdf.import.fetch(
+'file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/papers_5.ttl','Turtle'
+    
+)
+
+// Find most connected node
+MATCH (b:schema__ScholarlyArticle)
+WITH b, SIZE(()-[:my_ns__references]->(b)) as citationCount
+ORDER BY citationCount DESC LIMIT 1
+RETURN b
+// Find most connected node and its connections
+MATCH (b:schema__ScholarlyArticle)
+WITH b, SIZE(()-[:my_ns__references]->(b)) as citationCount
+ORDER BY citationCount DESC LIMIT 1
+MATCH (a)-[:my_ns__references]->(b)
+RETURN b, a
+// Find all papers about Knowledge Graphs
+MATCH (n)
+WHERE n.schema__headline contains "Knowledge Graph"
+RETURN n
+// Find most connected node that deals with Knowledge Graphs
+MATCH (b:schema__ScholarlyArticle)
+WHERE b.schema__headline contains "Knowledge Graph"
+WITH b, SIZE(()-[:my_ns__references]->(b)) as citationCount
+ORDER BY citationCount DESC LIMIT 1
+RETURN b
+// Find all papers written by both Craig and Jay
+MATCH (n)
+WHERE n.schema__author contains "Craig"
+    AND n.schema__author contains "Jay"
+RETURN n
+// Find the author who wrote the most papers
+(this will require author URIs)
+// Find the paper with the most authors

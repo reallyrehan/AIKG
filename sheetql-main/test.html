@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+	<title>SheetQL</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/static/style.css"> -->
+
+	<link rel="stylesheet" href="/static/css/hover-min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+	
+	
+	
+	<link href="/static/fontawesome/css/fontawesome.min.css?version=5.14.0" rel="stylesheet">
+<link href="/static/fontawesome/css/solid.min.css?version=5.14.0" rel="stylesheet">
+
+
+
+
+<!--  -->
+
+<link rel=stylesheet href="/static/doc/docs.css">
+
+<link rel="stylesheet" href="/static/lib/codemirror.css" />
+<script src="/static/lib/codemirror.js"></script>
+<script src="/static/addon/edit/matchbrackets.js"></script>
+<script src="/static/sql.js"></script>
+<link rel="stylesheet" href="/static/addon/hint/show-hint.css" />
+<script src="/static/addon/hint/show-hint.js"></script>
+<script src="/static/addon/hint/sql-hint.js"></script>
+<style>
+.CodeMirror {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+        </style>
+
+<!--  -->
+
+
+
+
+
+
+
+
+	<style>
+
+
+
+
+.shine {
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px; 
+  display: inline-block;
+  position: relative; 
+  
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards; 
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
+  }
+
+box {
+  height: 104px;
+  width: 100px;
+}
+
+
+
+lines {
+  height: 20px;
+  margin-top: 10px;
+  width: 100%; 
+
+}
+
+photo {
+  display: block!important;
+  width: 325px; 
+  height: 100px; 
+  margin-top: 15px;
+}
+
+@-webkit-keyframes placeholderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  
+  100% {
+    background-position: 468px 0; 
+  }
+}
+
+
+
+
+
+
+
+/*  */
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 250px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgb(255, 255, 255); /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  box-shadow: 5px 5px 5px 5px rgb(172, 170, 170);
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffffff;
+  display: block;
+  font-family:Roboto;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #ffffff;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.hvr-underline-reveal:before{content:"";position:absolute;z-index:-1;left:0;right:0;bottom:0;background:#00BA34;height:4px;-webkit-transform:translateY(4px);transform:translateY(4px);-webkit-transition-property:transform;transition-property:transform;-webkit-transition-duration:.3s;transition-duration:.3s;-webkit-transition-timing-function:ease-out;transition-timing-function:ease-out}
+
+
+
+/* TESTINGDIV */
+
+/* TESTINGDIV */
+
+
+
+/*  */
+	</style>
+</head>
+<body style="background-color: #EEEEEE">
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Navbar</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav ml-auto">
+			<li class="nav-item active">
+			  <a class="nav-link hvr-underline-reveal" id="calc" href="#">Execute <span class="sr-only">(current)</span></a>
+
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link hvr-underline-reveal" id="format" href="#">Format <span class="sr-only">(current)</span></a>
+  
+			  </li>
+			<li class="nav-item">
+			  <a class="nav-link" id="test" href="#">hello</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="test2" href="#">hello</a>
+			  </li>
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Dropdown
+			  </a>
+			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="#">Action</a>
+				<a class="dropdown-item" href="#">Another action</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#">Something else here</a>
+			  </div>
+			</li>
+			<li class="nav-item mr-4">
+			  <a class="nav-link disabled" href="#">Disabled</a>
+			</li>
+		  </ul>
+		  <form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		  </form>
+		</div>
+	  </nav>
+
+	<div class="sidenav">
+		
+		<h1 class = "ml-4 "><u><b><a class="text-dark text-muted " href="/" style="font-size:1.5rem;">SheetQL</a></b></u></h1>
+		<hr>
+
+		
+		
+
+        <div class = "row d-flex">
+        <div class = "col">
+        <a style = "border-radius:0; font-size:1rem;" class="btn btn-secondary btn-block" data-toggle="collapse" href="#multiCollapseExample0" role="button" aria-expanded="false" aria-controls="multiCollapseExample0">Data_dump  </a>
+            <div style = "width:100%; " class="collapse multi-collapse " id="multiCollapseExample0">
+            <div "border-radius:0;" class="card card-body">
+                <p> <b>Order Id</b> : object<br> <b>Customer Id</b> : object<br> <b>Order Amount (Rs)</b> : float64<br> <b>Product Name</b> : object<br> <b>Category</b> : object<br> <b>Sub Category</b> : object<br> <b>Time Stamp</b> : object<br> <b>Product Quantity</b> : int64<br> <b>Cummulative Price</b> : float64<br> <b>SKU</b> : object<br> <b>User name</b> : object<br> <b>Customer Phone</b> : float64<br> <b>City</b> : object<br> <b>Area</b> : object<br> <b>Shop</b> : object<br> <b>Lat</b> : object<br> <b>Long</b> : object</p>
+                 </div>
+            </div>
+            </div>
+        
+        </div>
+
+        <div class = "row d-flex">
+        <div class = "col">
+        <a style = "border-radius:0; font-size:1rem;" class="btn btn-secondary btn-block" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Orders  </a>
+            <div style = "width:100%; " class="collapse multi-collapse " id="multiCollapseExample1">
+            <div "border-radius:0;" class="card card-body">
+                <p> <b>Row ID</b> : int64<br> <b>Order ID</b> : object<br> <b>Order Date</b> : datetime64[ns]<br> <b>Ship Date</b> : datetime64[ns]<br> <b>Ship Mode</b> : object<br> <b>Customer ID</b> : object<br> <b>Customer Name</b> : object<br> <b>Segment</b> : object<br> <b>Country</b> : object<br> <b>City</b> : object<br> <b>State</b> : object<br> <b>Postal Code</b> : int64<br> <b>Region</b> : object<br> <b>Product ID</b> : object<br> <b>Category</b> : object<br> <b>Sub-Category</b> : object<br> <b>Product Name</b> : object<br> <b>Sales</b> : float64<br> <b>Quantity</b> : int64<br> <b>Discount</b> : float64<br> <b>Profit</b> : float64</p>
+                 </div>
+            </div>
+            </div>
+        
+        </div>
+
+        <div class = "row d-flex">
+        <div class = "col">
+        <a style = "border-radius:0; font-size:1rem;" class="btn btn-secondary btn-block" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">Returns  </a>
+            <div style = "width:100%; " class="collapse multi-collapse " id="multiCollapseExample2">
+            <div "border-radius:0;" class="card card-body">
+                <p> <b>Returned</b> : object<br> <b>Order ID</b> : object</p>
+                 </div>
+            </div>
+            </div>
+        
+        </div>
+	
+	  </div>
+
+
+
+
+
+
+
+	<!-- <div class="container">
+		<div class = "row ">
+			<div class = "col-12 d-flex mt-4 mb-4">
+				<h1 class = "ml-auto mr-auto">
+				<p style="text-decoration:underline; text-decoration-color:green; text-decoration-style: double;">
+					S<sup class = "mb-4" style="font-size:small;">heet</sup>Q<sup class = "mb-4" style="font-size:small;">uery</sup>L<sup class = "mb-4" style="text-decoration-line: none; font-size:small;">anguage</sup>
+				</p>
+			</h1>
+
+			</div>
+		</div>
+	</div> -->
+
+	<!-- <div class = "container"  style="padding-left:0px; margin-left:2%;"> -->
+	<div class = "container mt-4" style="width:1200px;">
+
+		<div class = "row mt-4">
+			
+			<div class = "col-md-12 mr-auto">
+			
+
+		
+
+				<form method="post">
+			
+				
+					<!-- <textarea id="query_input" name="title" required style="width:100%;height:10rem;">
+</textarea><br><br> -->
+			
+
+
+					  <textarea id="code" name="code">
+select * from Orders;
+						</textarea>
+					<!-- <div class = "d-flex">
+					<input class="ml-auto mr-auto btn btn-success" id="submit" name="submit" type="submit" value="Submit">
+				</div> -->
+				</form>
+				<!-- <div class = "d-flex">
+					<button id="calc" class = "ml-auto mr-auto btn btn-success">Run</button>
+
+			</div> -->
+
+
+			
+						
+						
+					  
+				
+					  
+<!-- TESTING -->
+
+<!-- https://codepen.io/umng/pen/xMXXRj SHIMMER ANIMATION -->
+
+<div class="card mt-4" id="loading" style="display:none;" >
+    <h5 class="card-header"><lines class="shine ml-auto mr-auto"></lines></h5>
+    <div class="card-body">
+			<div class ="row " >
+				<div class = "col-12 d-flex">
+				<lines class="shine ml-auto mr-auto"></lines>
+				
+
+			</div>
+			<div class = "col-12 d-flex">
+				<lines class="shine ml-auto mr-auto"></lines>
+				
+
+			</div>
+			<div class = "col-12 d-flex">
+				<lines class="shine ml-auto mr-auto"></lines>
+				
+
+			</div>
+
+		
+	
+		
+         </div>
+                <p class="card-text mt-2"><small class="text-muted">
+
+
+				</small></p>
+
+    </div>
+
+    </div>
+
+    <div id="results">
+      <div id="result_div">
+        
+        
+        <div class="card mt-4" style="width:1200px;" >
+
+
+<div class="card-body">
+  <span style="color:blue;">SELECT</span>  <span style="color:black;">*</span>  <span style="color:blue;">FROM</span>  <span style="color:red;">Data_dump</span> <span style="color:black;">;</span>
+
+<hr>
+
+
+
+
+  
+  <div style="ml-4 mt-4 mb-4 mr-4 overflow-x:auto; overflow-y:auto; height:1200px;">  
+  <table class="ml-4 mr-4 mb-4 mt-4" >
+<thead>
+<tr style="text-align: right;">
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: center;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Order Id</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Customer Id</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Order Amount (Rs)</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Product Name</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Category</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Sub Category</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 50px 0px 0px">Time Stamp</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Product Quantity</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Cummulative Price</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">SKU</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">User name</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 40px 0px 0px">Customer Phone</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">City</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Area</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Shop</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Lat</th>
+<th style="background-color: #808080;font-family: Century Gothic;font-size: medium;color: #FFFFFF;text-align: left;border-bottom: 2px solid #808080;padding: 0px 20px 0px 0px">Long</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX2dE86xGqxpPZ6PaZ</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MC6tHeONh7-NGPvnCsB</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">1030.0</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Meezan</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Kitchen</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Oil and Ghee</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sat Jul 18 18:13:09 GMT+05:00 2020</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">1</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">1030.0</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Meezan - Cooking Oil (1 Ltr. x 5)</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Rehan</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3.326713e+09</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Karachi</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Shah Faisal</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Siddique brothers</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">24.8818288</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">67.1602295</td>
+</tr>
+<tr>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX6aVHEheZELsyitgf</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX47-3jQGSX1vapCf6</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">1235.0</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Football matches</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Home Care</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Miscellaneous</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sat Jul 18 18:30:26 GMT+05:00 2020</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">5</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">375.0</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Football matches - (1 danda of 20 boxes)</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">mehtab</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3.128378e+09</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Karachi</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Shah Faisal</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">masha ALLAH muneer store</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">24.8865489</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">67.1617055</td>
+</tr>
+<tr>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX6aVHEheZELsyitgf</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX47-3jQGSX1vapCf6</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">1235.0</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Slice</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Beverages</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Juices</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sat Jul 18 18:30:26 GMT+05:00 2020</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">2</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">860.0</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Slice - (250 ml x 24)</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">mehtab</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3.128378e+09</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Karachi</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Shah Faisal</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">masha ALLAH muneer store</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">24.8865489</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">67.1617055</td>
+</tr>
+<tr>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7GZnjgTOg0deWhIf</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MB8yKbEvTuATRNEyV8m</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">405.05</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Ariel</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Home Care</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Detergents</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sat Jul 18 18:33:21 GMT+05:00 2020</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">1</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">131.25</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Ariel - (500 g)</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Baba Jee General Store</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3.158929e+09</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Karachi</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">near markazi imam bargah jaffer tayyar</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">None</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">24.884888</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">67.199524</td>
+</tr>
+<tr>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7GZnjgTOg0deWhIf</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MB8yKbEvTuATRNEyV8m</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">405.05</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Dettol</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Personal Care</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Soaps</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sat Jul 18 18:33:21 GMT+05:00 2020</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">2</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">74.0</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Dettol - Soap - (Rs 40) - Blue</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Baba Jee General Store</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3.158929e+09</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Karachi</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">near markazi imam bargah jaffer tayyar</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">None</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">24.884888</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">67.199524</td>
+</tr>
+<tr>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7GZnjgTOg0deWhIf</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MB8yKbEvTuATRNEyV8m</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">405.05</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Tibet</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Personal Care</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Soaps</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sat Jul 18 18:33:21 GMT+05:00 2020</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">85.8</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Tibet - Soap - (Rs 30)</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Baba Jee General Store</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3.158929e+09</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Karachi</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">near markazi imam bargah jaffer tayyar</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">None</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">24.884888</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">67.199524</td>
+</tr>
+<tr>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7GZnjgTOg0deWhIf</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MB8yKbEvTuATRNEyV8m</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">405.05</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sunlight</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Home Care</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Detergents</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sat Jul 18 18:33:21 GMT+05:00 2020</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">2</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">114.0</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sunlight - (Rs 10) - (6 sachets ki lari)</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Baba Jee General Store</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3.158929e+09</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Karachi</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">near markazi imam bargah jaffer tayyar</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">None</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">24.884888</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">67.199524</td>
+</tr>
+<tr>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7X0oWjm_K4cIr9xk</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7JHF5BP2ZotQTTod</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3270.0</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sting</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Beverages</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Soft Drinks</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sat Jul 18 18:34:29 GMT+05:00 2020</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">2</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">900.0</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sting - (300 ml x 12)</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">faisal</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3.002638e+09</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Karachi</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Malir</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">city restaurant</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">24.8833722</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">67.1641807</td>
+</tr>
+<tr>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7X0oWjm_K4cIr9xk</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7JHF5BP2ZotQTTod</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3270.0</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sting</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Beverages</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Soft Drinks</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sat Jul 18 18:34:29 GMT+05:00 2020</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">2</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">1320.0</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sting - (500 ml x 12)</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">faisal</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3.002638e+09</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Karachi</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Malir</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">city restaurant</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">24.8833722</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">67.1641807</td>
+</tr>
+<tr>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7X0oWjm_K4cIr9xk</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7JHF5BP2ZotQTTod</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3270.0</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Pepsi drinks</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Beverages</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Soft Drinks</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sat Jul 18 18:34:29 GMT+05:00 2020</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">1</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">550.0</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Pepsi - (1.5 Ltr. x 6)</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">faisal</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3.002638e+09</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Karachi</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Malir</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">city restaurant</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">24.8833722</td>
+<td style="background-color: #FFFFFF;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">67.1641807</td>
+</tr>
+<tr>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7X0oWjm_K4cIr9xk</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">-MCX7JHF5BP2ZotQTTod</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3270.0</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Pepsi drinks</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Beverages</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Soft Drinks</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Sat Jul 18 18:34:29 GMT+05:00 2020</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">1</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">500.0</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Pepsi - (500 ml x 12)</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">faisal</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">3.002638e+09</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Karachi</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">Malir</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">city restaurant</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">24.8833722</td>
+<td style="background-color: #EDEDED;font-family: Century Gothic;font-size: medium;text-align: left;padding: 0px 20px 0px 0px">67.1641807</td>
+</tr>
+</tbody>
+</table><p></p> </div>
+
+
+  <div class="d-flex">
+  <p class="card-text mt-2 mr-auto"><small class="text-muted ">Results: 4789</small></p>
+  <p class="card-text mt-2 ml-auto mr-auto"><small class="text-muted "> 1</small></p>
+          <p class="card-text mt-2 ml-auto"><small class="text-muted ">Executed at 2021-01-25 03:21:47.198497</small></p></div>
+          
+
+</div>
+
+</div></div>
+
+
+      <!-- TESTING DIV -->
+
+
+      <!-- TESTING DIV -->
+     </div>
+
+					 
+
+			</div>
+
+
+
+
+		</div>
+		
+
+	</div>
+
+
+	<!--  -->
+     
+	<script>
+		window.onload = function() {
+		  var mime = 'text/x-mariadb';
+		  // get mime type
+		  if (window.location.href.indexOf('mime=') > -1) {
+			mime = window.location.href.substr(window.location.href.indexOf('mime=') + 5);
+		  }
+
+
+		  var options_first = null;
+		  $.ajax({
+					// url : '/api/calc?query=' +document.getElementById('code').value,
+					url : '/api/tables',
+					
+					success: function(data) {
+						
+						var options = data["result"];
+						window.editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+							mode: mime,
+							indentWithTabs: true,
+							smartIndent: true,
+							lineNumbers: true,
+							matchBrackets : true,
+							autofocus: true,
+							extraKeys: {"Ctrl-Space": "autocomplete"},
+							hint: CodeMirror.hint.sql,
+							hintOptions: {tables: options}
+						});
+		 
+						
+						
+					}
+				});
+
+				
+
+
+
+		};
+		</script>
+
+<!--  -->
+	
+		<script src="/static/jquery-3.5.1.min.js"></script>
+		<!-- <script src="/static/custom_script.js?r="></script> -->
+		<script>$(function() {
+
+		 
+			$('#calc').click(function() {
+				
+				
+				$("#calc").html('<i class="fas fa-circle-notch fa-spin"></i>');
+				$("#loading").css('display','block');
+				$.ajax({
+					// url : '/api/calc?query=' +document.getElementById('code').value,
+					url : '/api/calc?query=' +window.editor.getValue(),
+
+					success: function(data) {
+				// $('#result_div').prepend(data['txt']);
+				$("#loading").css('display','none');
+				$('#result_div').prepend(
+					$(data['txt']).hide().fadeIn(800)
+				);
+				
+				$("#calc").html("Execute");
+				
+					}
+				});
+			});
+
+			$('#format').click(function() {
+				
+				
+				$("#format").html('<i class="fas fa-circle-notch fa-spin"></i>');
+				$.ajax({
+					// url : '/api/calc?query=' +document.getElementById('code').value,
+					url : '/api/format?query=' +window.editor.getValue(),
+
+					success: function(data) {
+				// $('#result_div').prepend(data['txt']);
+					window.editor.setValue(data["txt"]);
+				
+				$("#format").html("Format");
+				
+					}
+				});
+			});
+		})
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+// Find node with most in links (it is a paper by Geoffrey Hinton in image classification, we only have the DOI as the paper wasn't crawled, but was often referenced)
+MATCH (b:ns0__ScholarlyArticle)
+WITH b, SIZE(()-[:ns1__references]->(b)) as referenceCount
+ORDER BY referenceCount DESC LIMIT 1
+RETURN b
+
+
+// Find node with most out links (it cited 1.6k papers!)
+MATCH (b:ns0__ScholarlyArticle)
+WITH b, SIZE((b)-[:ns1__references]->()) as referenceCount
+ORDER BY referenceCount DESC LIMIT 1
+RETURN b
+
+
+// Find most connected node and its connections
+MATCH (b:ns0__ScholarlyArticle)
+WITH b, SIZE(()-[:ns1__references]->(b)) as referenceCount
+ORDER BY referenceCount DESC LIMIT 1
+MATCH (a)-[:ns1__references]->(b)
+RETURN b, a
+
+
+// Find all papers about Knowledge Graphs
+MATCH (n)
+WHERE n.ns0__headline contains "Knowledge Graph"
+RETURN n
+
+
+// Connected papers about Knowledge Graphs
+MATCH (n)-[]->(m)
+WHERE n.ns0__headline contains "Knowledge Graph"
+    AND m.ns0__headline contains "Knowledge Graph"
+RETURN n, m
+
+
+// Find most connected node that deals with Knowledge Graphs
+MATCH (b:ns0__ScholarlyArticle)
+WHERE b.ns0__headline contains "Knowledge Graph"
+WITH b, SIZE(()-[:ns1__references]->(b)) as referencenCount
+ORDER BY referencenCount DESC LIMIT 1
+RETURN b
+
+
+// Find all papers written by both Craig and Jay
+MATCH (n)-[ns0_author]->(m)
+WHERE m.ns0__name CONTAINS "Craig"
+    AND m.ns0__headline CONTAINS "Jay"
+RETURN n, m
+
+
+// Papers by Wang (popular name)
+MATCH (n)-[ns0_author]->(m)
+WHERE m.ns0__name CONTAINS "Wang"
+RETURN n, m
+
+
+// Find the author who wrote the most papers (J. Wang wrote 146 papers!)
+MATCH (a:ns0__Person)
+WITH a, SIZE(()-[:ns0__author]->(a)) AS authorPapersCount
+ORDER BY authorPapersCount DESC LIMIT 1
+return a, authorPapersCount
+
+
+// Find the paper with the most authors (The paper has 365 authors!!!)
+MATCH (p:ns0__ScholarlyArticle)
+WITH p, SIZE((p)-[:ns0__author]->()) AS numAuthors
+ORDER BY numAuthors DESC LIMIT 1
+return p, numAuthors
+
+
+// List genres by popularity
+MATCH (g:ns0__genre)
+WITH g, SIZE(()-[:ns0__genre]->(g)) as genreCount
+ORDER BY genreCount DESC
+return g, genreCount
+
+
+// Paper with highest citationVelocity (that is the citation count on Semantic Scholar)
+MATCH (n:ns0__ScholarlyArticle)
+WHERE EXISTS (n.ns1__citationVelocity)
+WITH n, MAX(n.ns1__citationVelocity) as citations
+ORDER BY citations DESC LIMIT 1
+RETURN n, citations
+
+
+// Paper with the most influential citations
+MATCH (n:ns0__ScholarlyArticle)
+WHERE EXISTS (n.ns1__b_influentialCitationCount)
+WITH n, MAX(n.ns1__b_influentialCitationCount) AS influentialCitations
+ORDER BY influentialCitations DESC LIMIT 1
+RETURN n, influentialCitations
+
+
+// Oldest paper (1994)
+MATCH (n:ns0__ScholarlyArticle)
+WHERE EXISTS (n.ns0__datePublished)
+WITH n, MIN(n.ns0__datePublished) AS datePublished
+ORDER BY datePublished LIMIT 1
+return n, datePublished
+
+
+// Longest paper title
+MATCH (n:ns0__ScholarlyArticle)
+WHERE EXISTS (n.ns0__headline)
+WITH n, SIZE(n.ns0__headline) AS headlineSize
+ORDER BY headlineSize DESC LIMIT 1
+return n, headlineSize
+
+
+// Longest abstract
+MATCH (n:ns0__ScholarlyArticle)
+WHERE EXISTS (n.ns0__abstract)
+WITH n, SIZE(n.ns0__abstract) AS abstractSize
+ORDER BY abstractSize DESC LIMIT 1
+return n, abstractSize
