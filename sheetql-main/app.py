@@ -60,45 +60,29 @@ class PostForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
+with open('../data/Neo4J Queries.txt') as f:
+    t=f.read()
+    f.close()
+    ls_t = t.split('_____')
+
 def getTableCols():
-    global sheet_list
+    global ls_t
 
-    col_html_complete = ''
+    q_num = 1
+    ans_global =""
+    for i in ls_t[0:10]:
+        query_name = i.replace('\n',' ').split('MATCH')[0][3:].strip()
+        query = 'MATCH '+i.replace('\n',' ').split('MATCH')[1]
 
-    for s in range(0,len(sheet_list)):
-        table_number = s
-        table_name = sheet_list[s]["name"]
-        dtypes = globals()[table_name].dtypes
+        ans='<div class = "row ml-2"><br><button class = "btn btn-light btn-block text-left"  id ="query__NUMBER__"><small>__NAME__</small><p id = "query__NUMBER___hidden" style = "display:none">__QUERY__</p></button></div>'
+        ans = ans.replace('__NUMBER__',str(q_num))
+        ans = ans.replace('__NAME__',query_name)
+        ans = ans.replace('__QUERY__',query)
 
+        ans_global+=ans
+        q_num+=1
 
-        col_html = """
-        <div class = "row d-flex">
-        <div class = "col">
-        <a style = "border-radius:0; font-size:1rem;" class="btn btn-light text-dark btn-block chevron" data-toggle="collapse" href="#multiCollapseExample__TABLE_NUMBER__" role="button" aria-expanded="false" aria-controls="multiCollapseExample__TABLE_NUMBER__"><span class="float-left"><i class="fa fa-chevron-right" aria-hidden="true"></i>
-</span> __TABLE_STRING__ </a>
-            <div style = "width:100%; " class="collapse multi-collapse " id="multiCollapseExample__TABLE_NUMBER__">
-            <div style="padding-bottom:0px;padding-top:10px;" class="card card-body">
-                __DTYPE_STRING__
-                 </div>
-            </div>
-            </div>
-        
-        </div>"""
-
-
-
-        dtype_string = "<p>"
-        for index, value in dtypes.items():
-            dtype_string = dtype_string + '<span class="float-left"> <b>'+str(index)+'</b></span> <span class="float-right">'+str(value)+"</span><br>"
-        dtype_string = dtype_string[0:-4]+"</p>"
-
-        col_html = col_html.replace("__TABLE_STRING__",table_name)
-        col_html = col_html.replace("__DTYPE_STRING__",dtype_string)
-        col_html = col_html.replace("__TABLE_NUMBER__",str(table_number))
-
-        col_html_complete = col_html_complete+"\n"+col_html
-
-    return col_html_complete
+    return( ans_global)
 
 
 
@@ -472,6 +456,19 @@ def getPaper(conn,search_property,search_term):
     query_string = query_string.replace('__TERM__',search_term)
     dc['citations'] = conn.query(query_string, db='neo4j')
 
+
+
+    query_string = '''
+    MATCH
+    (:ns0__ScholarlyArticle {__PROPERTY__:'__TERM__'})-[r:ns0__creditText]->(n)
+    RETURN n.ns0__headline,n.ns1__doi,n.uri
+    '''
+    query_string = query_string.replace('__PROPERTY__',search_property)
+    query_string = query_string.replace('__TERM__',search_term)
+    dc['creditText'] = conn.query(query_string, db='neo4j')
+
+
+
     query_string = '''
     MATCH
     (:ns0__ScholarlyArticle {__PROPERTY__:'__TERM__'})-[r:ns0__author]->(n)
@@ -551,6 +548,7 @@ def getPaperCard(search_choice,search_term):
     conn = getDbConnection()
     card_text = card_text_or[:]
 
+
     if search_choice in [2,3]:
 
         if search_choice == 3:
@@ -562,6 +560,7 @@ def getPaperCard(search_choice,search_term):
         # search_term = '10.1109/ICCV.2019.00500'
 
         paper_dict = getPaper(conn,search_property,search_term)
+        print(paper_dict)
 
         if len(paper_dict['info'])>0:
             uri = paper_dict['info'][0]['n']['uri'].split('/')[-1]
@@ -580,12 +579,16 @@ def getPaperCard(search_choice,search_term):
 
             for i in paper_dict['info'][0]['n']:
                 if i not in ["uri","ns0__abstract","ns0__headline"]:
-                    property_text+= '<div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(paper_dict['info'][0]['n'][i])+'</span></div>'
+                    if '__url' in i:
+                        property_text+= '<div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a href ="'+paper_dict['info'][0]['n'][i]+'" style="color:white;" target = "_blank">'+str(paper_dict['info'][0]['n'][i])+'</a></span></div>'
+                    else:
+                        property_text+= '<div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(paper_dict['info'][0]['n'][i])+'</span></div>'
+
 
             if len(paper_dict['authors'])>0:
                 property_text+= """<div class = "col-2"><small >Authors</small></div><div class = "col-10">"""
-                for a in [i['n']['ns0__name'] for i in paper_dict['authors']]:
-                    property_text+='<span class="badge badge-info mr-4">'+a+'</span>'
+                for a,b in [(i['n']['uri'],i['n']['ns0__name']) for i in paper_dict['authors']]:
+                    property_text+='<span class="badge badge-info mr-4"><a style = "color:white;" target="_blank" href="/page/5/'+a.split("/")[-1]+'">'+b+'</a></span>'
                 property_text+='</div>'
             if len(paper_dict['genres'])>0:
                 property_text+= """<div class = "col-2"><small >Genres</small></div><div class = "col-10">"""
@@ -594,9 +597,9 @@ def getPaperCard(search_choice,search_term):
                 property_text+='</div>'
 
             if "ns0__abstract" in paper_dict['info'][0]['n']:
-                property_text+= '<div class = "col-2 mt-4"><small >Abstract</small></div><div class = "col-10"><p">'+paper_dict['info'][0]['n']['ns0__abstract']+'</p></div>'
+                property_text+= '<div class = "col-2 mt-4"><small >Abstract</small></div><div class = "col-10 mt-4"><p">'+paper_dict['info'][0]['n']['ns0__abstract']+'</p></div>'
 
-            cite_text = '<div class = "col-2"><small>Citations</small></div><div class = "col-10"><p><button class="btn btn-block btn-secondary" data-toggle="collapse" href="#collapseExampleC'+str(session["query_count"])+'" role="button" aria-expanded="false" aria-controls="collapseExample">'+str(len(paper_dict['citations']))+'</button ></p><div class="collapse" id="collapseExampleC'+str(session["query_count"])+'"><div class="card card-body">__CITETEXT__</div></div></div>'
+            cite_text = '<div class = "col-2"><small>Citations</small></div><div class = "col-10"><p><button class="btn btn-block btn-secondary" data-toggle="collapse" href="#collapseExampleC'+str(session["query_count"])+'" role="button" aria-expanded="false" aria-controls="collapseExample">'+str(len(paper_dict['citations']))+'</button ></p><div class="collapse" id="collapseExampleC'+str(session["query_count"])+'"><div class="card card-body mb-4">__CITETEXT__</div></div></div>'
 
             if len(paper_dict['citations'])>0:
                 c_text = "<ul>"
@@ -611,11 +614,26 @@ def getPaperCard(search_choice,search_term):
                 cite_text_2 = cite_text.replace('__CITETEXT__',c_text)
                 property_text+=cite_text_2
 
-            cite_text = '<div class = "col-2"><small>References</small></div><div class = "col-10"><p><button class="btn btn-block btn-secondary" data-toggle="collapse" href="#collapseExampleR'+str(session["query_count"])+'" role="button" aria-expanded="false" aria-controls="collapseExample">'+str(len(paper_dict['references']))+'</button ></p><div class="collapse" id="collapseExampleR'+str(session["query_count"])+'"><div class="card card-body">__CITETEXT__</div></div></div>'
+            cite_text = '<div class = "col-2"><small>References</small></div><div class = "col-10"><p><button class="btn btn-block btn-secondary" data-toggle="collapse" href="#collapseExampleR'+str(session["query_count"])+'" role="button" aria-expanded="false" aria-controls="collapseExample">'+str(len(paper_dict['references']))+'</button ></p><div class="collapse" id="collapseExampleR'+str(session["query_count"])+'"><div class="card card-body mb-4">__CITETEXT__</div></div></div>'
 
             if len(paper_dict['references'])>0:
                 c_text = "<ul>"
                 for i in paper_dict['references']:
+                    c_text+= '<li><span class = "badge badge-primary mr-4" ><a style="color:white;" target = "_blank" href="/page/2/'+i['n.uri'].split("/")[-1]+'">'+i['n.uri'].split("/")[-1]+'</a></span>'
+                    if i['n.ns0__headline']:
+                        c_text+=i['n.ns0__headline']+'</li>'
+                    else:
+                        c_text+='</li>'
+
+                c_text+="</ul>"
+                cite_text_2 = cite_text.replace('__CITETEXT__',c_text)
+                property_text+=cite_text_2
+
+            cite_text = '<div class = "col-2"><small>creditText</small></div><div class = "col-10"><p><button class="btn btn-block btn-secondary" data-toggle="collapse" href="#collapseExampleX'+str(session["query_count"])+'" role="button" aria-expanded="false" aria-controls="collapseExample">'+str(len(paper_dict['creditText']))+'</button ></p><div class="collapse" id="collapseExampleX'+str(session["query_count"])+'"><div class="card card-body mb-4">__CITETEXT__</div></div></div>'
+
+            if len(paper_dict['creditText'])>0:
+                c_text = "<ul>"
+                for i in paper_dict['creditText']:
                     c_text+= '<li><span class = "badge badge-primary mr-4" ><a style="color:white;" target = "_blank" href="/page/2/'+i['n.uri'].split("/")[-1]+'">'+i['n.uri'].split("/")[-1]+'</a></span>'
                     if i['n.ns0__headline']:
                         c_text+=i['n.ns0__headline']+'</li>'
@@ -658,13 +676,21 @@ def getPaperCard(search_choice,search_term):
         property_text = '<hr class="mt-4">'
         c_r = 0
         for r in res:
-            property_text+= '<div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'" role="button" aria-expanded="false" aria-controls="collapseExample">‣ '+r['n']['ns0__headline']+'</button ></p><div class="collapse" id="collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'"><div class="card card-body">'
+            property_text+= '<div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'" role="button" aria-expanded="false" aria-controls="collapseExample">‣ '+r['n']['ns0__headline']+'</button ></p><div class="collapse" id="collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'"><div class="card card-body mb-4">'
             c_r+=1
-            property_text+= '<div class = "row"><div class = "col-2"><small >URI</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" target="_blank" href="/page/2/'+str(r['n']['uri'].split("/")[-1])+'">'+str(r['n']['uri'].split("/")[-1])+'</a></span></div></div>'
+            property_text+= '<div class = "row"><div class = "col-2"><small >uri</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" target="_blank" href="/page/2/'+str(r['n']['uri'].split("/")[-1])+'">'+str(r['n']['uri'].split("/")[-1])+'</a></span></div></div>'
 
             for i in r['n']:
                 if i not in ["uri","ns0__abstract","ns0__headline"]:
-                    property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
+                    # property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
+                    if '__url' in i:
+                        property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a href ="'+str(r['n'][i])+'" style="color:white;" target = "_blank">'+str(r['n'][i])+'</a></span></div></div>'
+                    else:
+                        property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
+
+
+            
+            
             property_text+='</div></div></div>'
             
         card_text = card_text.replace('Title','Search Title')
@@ -684,13 +710,20 @@ def getPaperCard(search_choice,search_term):
         property_text = '<hr class="mt-4">'
         c_r = 0
         for r in res:
-            property_text+= '<div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'" role="button" aria-expanded="false" aria-controls="collapseExample">‣ '+r['n']['ns0__name']+'</button ></p><div class="collapse" id="collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'"><div class="card card-body">'
+            property_text+= '<div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'" role="button" aria-expanded="false" aria-controls="collapseExample">‣ '+r['n']['ns0__name']+'</button ></p><div class="collapse" id="collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'"><div class="card card-body mb-4">'
             c_r+=1
-            property_text+= '<div class = "row"><div class = "col-2"><small >URI</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" target="_blank" href="/page/5/'+str(r['n']['uri'].split("/")[-1])+'">'+str(r['n']['uri'].split("/")[-1])+'</a></span></div></div>'
+            property_text+= '<div class = "row"><div class = "col-2"><small >uri</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" target="_blank" href="/page/5/'+str(r['n']['uri'].split("/")[-1])+'">'+str(r['n']['uri'].split("/")[-1])+'</a></span></div></div>'
 
             for i in r['n']:
                 if i not in ["uri","ns0__name"]:
-                    property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
+                    # property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
+                    if '__url' in i:
+                        property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a href ="'+str(r['n'][i])+'" style="color:white;" target = "_blank">'+str(r['n'][i])+'</a></span></div></div>'
+                    else:
+                        property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
+
+            
+            
             property_text+='</div></div></div>'
 
         card_text = card_text.replace('Title','Search Title')
@@ -707,65 +740,87 @@ def getPaperCard(search_choice,search_term):
 
 
         res = conn.query(query_string, db='neo4j')
-        print(res)
         card_text = card_text_or[:] 
 
         property_text = '<hr class="mt-4">'
         
-        r = res[0]
-        property_text+= '<div class = "card card-body mb-4"><small class="badge badge-dark" style="position:absolute; margin-top:-30px; margin-left:-10px;">Info</small>'
-        property_text+= '<div class = "row"><div class = "col-2"><small >URI</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" target="_blank" href="/page/5/'+str(r['n']['uri'].split("/")[-1])+'">'+str(r['n']['uri'].split("/")[-1])+'</a></span></div></div>'
+        try:
+            r = res[0]
 
-        for i in r['n']:
-            if i not in ["uri","ns0__name"]:
-                property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
-        property_text+='</div><hr>'
-
-
-        card_text = card_text.replace('Title','Author')
-        card_text = card_text.replace('__TITLE__',r['n']['ns0__name'])
-        # card_text = card_text.replace('__PROPERTIES__',property_text)
-        property_text_1 = property_text[:]
-
-        query_string = '''
-        MATCH
-        (x:ns0__Person {uri:'__TERM__'})<-[r:ns0__author]-(n)
-        RETURN n
-        '''
-        query_string = query_string.replace('__TERM__',"file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/"+str(search_term))
-        res = conn.query(query_string, db='neo4j')
-
-        property_text = '<hr class="mt-4">'
-        c_r = 0
-        for r in res:
-            property_text+= '<div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'" role="button" aria-expanded="false" aria-controls="collapseExample">‣ '+r['n']['ns0__headline']+'</button ></p><div class="collapse" id="collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'"><div class="card card-body">'
-            c_r+=1
-            property_text+= '<div class = "row"><div class = "col-2"><small >URI</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" target="_blank" href="/page/2/'+str(r['n']['uri'].split("/")[-1])+'">'+str(r['n']['uri'].split("/")[-1])+'</a></span></div></div>'
+            property_text+= '<div class = "card card-body mb-4"><small class="badge badge-dark" style="position:absolute; margin-top:-30px; margin-left:-10px;">Info</small>'
+            property_text+= '<div class = "row"><div class = "col-2"><small >uri</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" target="_blank" href="/page/5/'+str(r['n']['uri'].split("/")[-1])+'">'+str(r['n']['uri'].split("/")[-1])+'</a></span></div></div>'
 
             for i in r['n']:
-                if i not in ["uri","ns0__abstract","ns0__headline"]:
-                    property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
-            property_text+='</div></div></div>'
+                if i not in ["uri","ns0__name"]:
+                    # property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
+                    if '__url' in i:
+                        property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a href ="'+str(r['n'][i])+'" style="color:white;" target = "_blank">'+str(r['n'][i])+'</a></span></div></div>'
+                    else:
+                        property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
 
-        property_text_1+=property_text
+            property_text+='</div><hr>'
 
-        card_text = card_text.replace('__PROPERTIES__',property_text_1)
-        card_text = card_text.replace('__TOTAL__',str(len(res)))
+
+            card_text = card_text.replace('Title','Author')
+            card_text = card_text.replace('__TITLE__',r['n']['ns0__name'])
+            # card_text = card_text.replace('__PROPERTIES__',property_text)
+            property_text_1 = property_text[:]
+
+            query_string = '''
+            MATCH
+            (x:ns0__Person {uri:'__TERM__'})<-[r:ns0__author]-(n)
+            RETURN n
+            '''
+            query_string = query_string.replace('__TERM__',"file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/"+str(search_term))
+            res = conn.query(query_string, db='neo4j')
+
+            property_text = '<hr class="mt-4">'
+            c_r = 0
+            for r in res:
+                property_text+= '<div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'" role="button" aria-expanded="false" aria-controls="collapseExample">‣ '+r['n']['ns0__headline']+'</button ></p><div class="collapse" id="collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'"><div class="card card-body mb-4">'
+                c_r+=1
+                property_text+= '<div class = "row"><div class = "col-2"><small >uri</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" target="_blank" href="/page/2/'+str(r['n']['uri'].split("/")[-1])+'">'+str(r['n']['uri'].split("/")[-1])+'</a></span></div></div>'
+
+                for i in r['n']:
+                    if i not in ["uri","ns0__abstract","ns0__headline"]:
+                        
+                        # property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
+                        if '__url' in i:
+                            property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a href ="'+str(r['n'][i])+'" style="color:white;" target = "_blank">'+str(r['n'][i])+'</a></span></div></div>'
+                        else:
+                            property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
+
+                property_text+='</div></div></div>'
+
+            property_text_1+=property_text
+
+            card_text = card_text.replace('__PROPERTIES__',property_text_1)
+            card_text = card_text.replace('__TOTAL__',str(len(res)))
+        except:
+            card_text = card_text.replace('__PROPERTIES__',"")
+            card_text = card_text.replace('__TOTAL__',str(0))
+            card_text = card_text.replace('Title','Author')
+            card_text = card_text.replace('__TITLE__',search_term)
+
 
     elif search_choice == 6:
-        print('hi')
         query_string = search_term
 
-        res = conn.query(query_string, db='neo4j')
+        res = conn.query(query_string.replace('&gt;','>'), db='neo4j')
         card_text = card_text_or[:] 
 
         property_text = '<hr class="mt-4">'
         property_text+= '<div class="card card-body" >'
 
         if res:
-            property_text+='<div class = "container" style="overflow-x:scroll; overflow-y:scroll; height:500px;">'
+            if len(res)>15:
+                property_text+='<div class = "container" style="overflow-x:scroll; overflow-y:scroll; height:500px;">'
+            else:
+                property_text+='<div class = "container" style="overflow-x:scroll; ">'
+            c_r = 0
             for r in res:
-                property_text+='<div class = "row"  ><xmp>'+str(r)+'</xmp></div>'
+                c_r+=1
+                property_text+='<div class = "row"  ><xmp>'+str(c_r)+'   '+str(r)+'</xmp></div>'
             property_text+='</div></div>'
 
             card_text = card_text.replace('Title','Query')
@@ -773,7 +828,10 @@ def getPaperCard(search_choice,search_term):
             card_text = card_text.replace('__TOTAL__',str(len(res)))
 
         else:
-            card_text = card_text.replace('__PROPERTIES__','Error: Incorrect Query')
+            if isinstance(res,list):
+                card_text = card_text.replace('__PROPERTIES__','<div class="card card-body" >No Results</div>')
+            else:
+                card_text = card_text.replace('__PROPERTIES__','<div class="card card-body" >Error: Incorrect Query</div>')
             card_text = card_text.replace('__TOTAL__',str(0))
 
         query_title = search_term[:]

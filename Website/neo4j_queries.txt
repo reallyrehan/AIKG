@@ -2,6 +2,17 @@ call n10s.rdf.import.fetch(
 'file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/papers_5.ttl','Turtle'
     
 )
+call n10s.rdf.import.fetch(
+'file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/authors.ttl','Turtle'
+)
+call n10s.rdf.import.fetch(
+'file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/synthetic_papers.ttl','Turtle'
+    
+)
+
+
+
+MATCH (n:ns0__Person {uri:'file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/1000423'} ) RETURN n LIMIT 25
 
 // Find most connected node
 MATCH (b:schema__ScholarlyArticle)

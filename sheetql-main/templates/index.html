@@ -443,14 +443,13 @@
 
 
 		<hr>
-		<small class="text-muted mb-4 ml-4"><b>Sheets</b></small>
+		<small class="text-muted mb-4 ml-4"><b>Suggested Queries</b></small>
+
 
 		{% autoescape false %}
 		{{col_html}}
+		
 		{% endautoescape %}
-
-
-
 
 	</div>
 
@@ -514,11 +513,11 @@ select * from Data_dump;
 							<label class="form-check-label" for="inlineRadio4">Author Text</label>
 						  </div>
 						  <div class="form-check form-check-inline">
-							<input class="form-check-input ml-2" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="5">
+							<input class="form-check-input ml-2" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5">
 							<label class="form-check-label" for="inlineRadio4">Author URI</label>
 						  </div>
 						  <div class="form-check form-check-inline">
-							<input class="form-check-input ml-2" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="6">
+							<input class="form-check-input ml-2" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="6">
 							<label class="form-check-label" for="inlineRadio5">Cypher</label>
 						  </div>
 
@@ -893,6 +892,49 @@ __TITLE__</h3>
 			$("#loading").css('display', 'block');
 			$("#stop").prop("disabled", false);
 		}
+
+		$(function () {
+			$('#query1').click(function () {
+				$('#inlineRadio6').attr('checked',true);
+				window.editor.setValue($('#query1_hidden').html());
+			});
+			$('#query2').click(function () {
+				$('#inlineRadio6').attr('checked',true);
+				window.editor.setValue($('#query2_hidden').html());
+			});
+			$('#query3').click(function () {
+				$('#inlineRadio6').attr('checked',true);
+				window.editor.setValue($('#query3_hidden').html());
+			});
+			$('#query4').click(function () {
+				$('#inlineRadio6').attr('checked',true);
+				window.editor.setValue($('#query4_hidden').html());
+			});
+			$('#query5').click(function () {
+				$('#inlineRadio6').attr('checked',true);
+				window.editor.setValue($('#query5_hidden').html());
+			});
+			$('#query6').click(function () {
+				$('#inlineRadio6').attr('checked',true);
+				window.editor.setValue($('#query6_hidden').html());
+			});
+			$('#query7').click(function () {
+				$('#inlineRadio6').attr('checked',true);
+				window.editor.setValue($('#query7_hidden').html());
+			});
+			$('#query8').click(function () {
+				$('#inlineRadio6').attr('checked',true);
+				window.editor.setValue($('#query8_hidden').html());
+			});
+			$('#query9').click(function () {
+				$('#inlineRadio6').attr('checked',true);
+				window.editor.setValue($('#query9_hidden').html());
+			});
+			$('#query10').click(function () {
+				$('#inlineRadio6').attr('checked',true);
+				window.editor.setValue($('#query10_hidden').html());
+			});
+		});
 
 		$(function () {
 			$('#upload-file-btn').click(function () {
