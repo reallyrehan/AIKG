@@ -1,5 +1,9 @@
 # Predicting Future Scientific Research with Knowledge Graphs
 
+## Members
+- [Matheus Schmitz](https://github.com/matheus-schmitz)
+- [Rehan Ahmed](https://github.com/reallyrehan)
+
 ## 1. Introduction
 The rise of Data Science as an academic discipline hails at least in part from its efficiency as a leverage tool, able to power-up many pre-existing data-dependent approaches to problem solving, knowledge discovery & comprehension, and predictive systems, among others.  
 Looking to leverage this strength, this project was devised with the intent of combining data science techniques, primarily Knowledge Graphs and Artificial Intelligence, in the pursuit of uncovering trends and areas of interest for future scientific research.  
