@@ -18,6 +18,138 @@ from datetime import datetime
 from pretty_html_table import build_table
 from werkzeug.utils import secure_filename
 import re
+import json
+from neo4j.graph import Node
+
+
+### RECOMMENDER CODE
+
+# General Packages
+import numpy as np
+import pandas as pd
+import os
+import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Iterators
+from collections import Counter
+from itertools import islice
+from operator import itemgetter
+from tqdm import tqdm
+
+# Text
+import re
+from textblob import TextBlob
+import nltk
+from nltk.tokenize import sent_tokenize, word_tokenize, wordpunct_tokenize, MWETokenizer
+from nltk.stem import porter, WordNetLemmatizer
+from nltk.corpus import stopwords
+from nltk.util import ngrams
+
+# Scikit-Learn
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.decomposition import LatentDirichletAllocation, TruncatedSVD, NMF
+from sklearn.preprocessing import StandardScaler, Normalizer
+from sklearn.neighbors import NearestNeighbors
+
+# Serialization
+import joblib 
+
+# Warnings
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning) 
+
+# %%time
+vectorizer = joblib.load('../data/model/vectorizer.joblib') 
+print(type(vectorizer))
+
+LDA_obj = joblib.load('../data/model/LDA_obj.joblib') 
+print(type(LDA_obj))
+
+LDA_data = joblib.load('../data/model/LDA_data.joblib') 
+print(type(LDA_data))
+
+topic_names = joblib.load('../data/model/topic_names.joblib') 
+print(type(topic_names))
+
+papers = pd.read_csv('../data/final_dataset.csv')
+print(f'papers.shape: {papers.shape}')
+papers.drop(columns='Unnamed: 0', inplace=True)
+papers.drop_duplicates(subset='title', inplace=True)
+papers.drop_duplicates(subset='abstract', inplace=True)
+papers.reset_index(inplace=True, drop=True)
+papers['abstract'] = papers['abstract'].astype(str)
+print(f'papers.shape: {papers.shape}')
+# papers.head(3)
+
+def get_recommendation(INPUT_STRING, 
+                       NUM_RECOMMENDATIONS = 5,
+                       vectorizer = vectorizer,
+                       LDA_obj = LDA_obj,
+                       LDA_data = LDA_data,
+                       topic_names = topic_names,
+                       papers = papers):
+    
+    '''
+    Requires the following previous objects from this notebook:
+    1. Trained vectorizer
+    2. Trained LDA_obj
+    3. Converted LDA_data
+    4. topic_names (list with the modeled topic for each TED Talk)
+    5. ted_transcripts dataframe contaning both CSVs already merged
+    '''
+    
+    # Vectorize the input string
+    target_vector = vectorizer.transform([INPUT_STRING])
+    
+    # Model the vector with the trained LDA_Obj
+    target_modeled = LDA_obj.transform(target_vector)
+    
+    # Fit a KNN algorithm on the whole dataset modeled with LDA
+    NN = NearestNeighbors(n_neighbors=NUM_RECOMMENDATIONS, metric='cosine', algorithm='brute', n_jobs=-1)
+    NN.fit(LDA_data)
+    
+    # Find the nearest neighbords for the LDA vector correspondent to the input string
+    results = NN.kneighbors(target_modeled)
+    recommend_list = results[1][0]
+    cosine_distance = results[0][0]
+
+    # Loop to extract revelant information about the recommendations
+    titles, modeled_topics, citations = [], [] ,[]
+    for idx in recommend_list:
+        titles.append(papers.loc[idx,'title'])
+        modeled_topics.append(topic_names.iloc[idx,0])
+        citations.append(papers.loc[idx,'citationVelocity'])
+
+    # Put recommendations in a dataframe for outputting
+    output_df = pd.DataFrame({'ID': recommend_list,
+                              'Cosine Distance': cosine_distance,
+                              'Title': titles,
+                              'Modeled Topic': modeled_topics,
+                              'Citations': citations})
+    
+    # Customize index to start at 1 
+    custom_index = np.arange(1, NUM_RECOMMENDATIONS+1).tolist()
+    output_df.set_index([custom_index], inplace=True)
+    
+    return output_df
+
+
+
+
+# INPUT_STRING = "Neural Network"
+
+# output = get_recommendation(INPUT_STRING, 
+#                    NUM_RECOMMENDATIONS=10,
+#                    vectorizer = vectorizer,
+#                    LDA_obj = LDA_obj,
+#                    LDA_data = LDA_data,
+#                    topic_names = topic_names,
+#                    papers = papers)
+
+
+
 
 app = Flask(__name__)
 fa = FontAwesome(app)
@@ -364,7 +496,14 @@ def uploadFile():
     return jsonify({
         "result":all_txt
     })
-    
+
+
+
+
+
+@app.route("/lda")
+def returnLDA():
+    return render_template('lda.html',result ="") 
 
 @app.route("/page.html")
 def returnPage():
@@ -506,7 +645,7 @@ def getDbConnection():
     global conn
 
     if not conn:
-        conn = Neo4jConnection(uri="bolt://localhost:7687", user="neo4j", pwd="abc123")
+        conn = Neo4jConnection(uri="bolt://localhost:11009", user="neo4j", pwd="abc123")
 
     return conn
 
@@ -540,7 +679,12 @@ __TITLE__</h3>
 
 
 
-
+def unescape(s):
+    s = s.replace("&lt;", "<")
+    s = s.replace("&gt;", ">")
+    # this has to be last:
+    s = s.replace("&amp;", "&")
+    return s
 
 
 
@@ -560,7 +704,7 @@ def getPaperCard(search_choice,search_term):
         # search_term = '10.1109/ICCV.2019.00500'
 
         paper_dict = getPaper(conn,search_property,search_term)
-        print(paper_dict)
+        # print(paper_dict)
 
         if len(paper_dict['info'])>0:
             uri = paper_dict['info'][0]['n']['uri'].split('/')[-1]
@@ -662,13 +806,82 @@ def getPaperCard(search_choice,search_term):
 
         card_text = card_text.replace('__TOTAL__',str(1))
 
+    elif search_choice == 0:
 
+
+        INPUT_STRING = search_term
+
+        recommend_df = get_recommendation(INPUT_STRING, 
+                        NUM_RECOMMENDATIONS=10,
+                        vectorizer = vectorizer,
+                        LDA_obj = LDA_obj,
+                        LDA_data = LDA_data,
+                        topic_names = topic_names,
+                        papers = papers)
+
+
+        uri_text = 'file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/'
+
+        ans = ""
+        for i in list(recommend_df['ID']):
+            ans = ans+"','"+uri_text+str(i)
+            
+
+        # print(ans[2:]+"'")
+
+        query_string = """MATCH (n:ns0__ScholarlyArticle)
+        WHERE n.uri IN [__LIST__]
+        RETURN n"""
+        query_string = query_string.replace('__LIST__',ans[2:]+"'")
+
+
+        res = conn.query(query_string, db='neo4j')
+
+        recommend_df['neo_result'] = ''
+        for r in res:
+            # print('hi')
+            ind = recommend_df[recommend_df['ID']==int(r['n']['uri'].split('/')[-1])].index[0]
+            recommend_df.at[ind,'neo_result'] = r['n']
+        
+
+        card_text = card_text_or[:] 
+
+        property_text = '<hr class="mt-4">'
+
+        c_r = 0
+        for _,row in recommend_df.iterrows():
+            property_text+= '<div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'" role="button" aria-expanded="false" aria-controls="collapseExample">‣ '+row['Title']+'</button ></p><div class="collapse" id="collapseExampleC'+str(session["query_count"])+'_'+str(c_r)+'"><div class="card card-body mb-4">'
+            c_r+=1
+            # property_text+= '<div class = "row"><div class = "col-2"><small >uri</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" target="_blank" href="/page/2/'+str(row['ID'])+'">'+str(row['ID'])+'</a></span></div></div>'
+            property_text+= '<div class = "row"><div class = "col-2"><small >Cosine Distance</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(row['Cosine Distance'])+'</span></div></div>'
+            property_text+= '<div class = "row"><div class = "col-2"><small >Modeled Topics</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(row['Modeled Topic'])+'</span></div></div>'
+
+            for i in row['neo_result']:
+                if i not in ["uri","ns0__abstract","ns0__headline"]:
+                    # property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
+                    if '__url' in i:
+                        property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a href ="'+str(r['n'][i])+'" style="color:white;" target = "_blank">'+str(r['n'][i])+'</a></span></div></div>'
+                    else:
+                        property_text+= '<div class = "row"><div class = "col-2"><small >'+i+'</small></div><div class = "col-10"><span class="badge badge-info mr-4">'+str(r['n'][i])+'</span></div></div>'
+            
+
+
+
+
+            property_text+='</div></div></div>'
+            
+            
+        card_text = card_text.replace('Title','Search Title')
+        card_text = card_text.replace('__TITLE__',search_term)
+        card_text = card_text.replace('__PROPERTIES__',property_text)
+        card_text = card_text.replace('__TOTAL__',str(len(res)))
     elif search_choice == 1:
         query_string = """MATCH (n:ns0__ScholarlyArticle {})
         WHERE toLower(n.ns0__headline) CONTAINS toLower('__SEARCHTERM__')
         RETURN n limit 10"""
 
-        query_string = query_string.replace('__SEARCHTERM__',search_term)
+
+        query_string = query_string.replace('__SEARCHTERM__',search_term.replace('\n',' ').strip())
 
         res = conn.query(query_string, db='neo4j')
         card_text = card_text_or[:] 
@@ -813,15 +1026,33 @@ def getPaperCard(search_choice,search_term):
         property_text+= '<div class="card card-body" >'
 
         if res:
+
+            
             if len(res)>15:
                 property_text+='<div class = "container" style="overflow-x:scroll; overflow-y:scroll; height:500px;">'
             else:
                 property_text+='<div class = "container" style="overflow-x:scroll; ">'
             c_r = 0
-            for r in res:
-                c_r+=1
-                property_text+='<div class = "row"  ><xmp>'+str(c_r)+'   '+str(r)+'</xmp></div>'
-            property_text+='</div></div>'
+            c=0
+
+            ans_dict = {}
+            for i in res:
+                ans_dict[c]={}
+                for j in i.keys():
+                    ans_dict[c][j]={}
+                    if isinstance(i[j],Node):
+                        for k in i[j]:
+                            ans_dict[c][j][k] = i[j][k]
+                    else:
+                        ans_dict[c][j] = unescape(str(i[j]))
+                c+=1
+            ans_text =  json.dumps(ans_dict,indent=2).replace('\n','<br>')
+
+            property_text+='<div class = "row"  >'+(ans_text)+'</div></div></div>'
+            # for r in res:
+            #     c_r+=1
+            #     property_text+='<div class = "row"  ><xmp>'+str(c_r)+'   '+str(r)+'</xmp></div>'
+            # property_text+='</div></div>'
 
             card_text = card_text.replace('Title','Query')
             card_text = card_text.replace('__PROPERTIES__',property_text)

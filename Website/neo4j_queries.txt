@@ -11,35 +11,30 @@ call n10s.rdf.import.fetch(
 )
 
 
+#
+PageRank
 
-MATCH (n:ns0__Person {uri:'file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/1000423'} ) RETURN n LIMIT 25
+CALL gds.graph.create(
+  'myGraph',
+  'ns0__ScholarlyArticle',
+  'ns0__citation'
+)
 
-// Find most connected node
-MATCH (b:schema__ScholarlyArticle)
-WITH b, SIZE(()-[:my_ns__references]->(b)) as citationCount
-ORDER BY citationCount DESC LIMIT 1
-RETURN b
-// Find most connected node and its connections
-MATCH (b:schema__ScholarlyArticle)
-WITH b, SIZE(()-[:my_ns__references]->(b)) as citationCount
-ORDER BY citationCount DESC LIMIT 1
-MATCH (a)-[:my_ns__references]->(b)
-RETURN b, a
-// Find all papers about Knowledge Graphs
-MATCH (n)
-WHERE n.schema__headline contains "Knowledge Graph"
+CALL gds.pageRank.write('myGraph', {
+  maxIterations: 20,
+  dampingFactor: 0.85,
+  writeProperty: 'pagerank'
+})
+YIELD nodePropertiesWritten, ranIterations
+
+
+MATCH (n:ns0__ScholarlyArticle)
 RETURN n
-// Find most connected node that deals with Knowledge Graphs
-MATCH (b:schema__ScholarlyArticle)
-WHERE b.schema__headline contains "Knowledge Graph"
-WITH b, SIZE(()-[:my_ns__references]->(b)) as citationCount
-ORDER BY citationCount DESC LIMIT 1
-RETURN b
-// Find all papers written by both Craig and Jay
-MATCH (n)
-WHERE n.schema__author contains "Craig"
-    AND n.schema__author contains "Jay"
-RETURN n
-// Find the author who wrote the most papers
-(this will require author URIs)
-// Find the paper with the most authors
+ORDER BY n.pagerank desc
+limit 50
+
+
+
+https://neo4j.com/docs/graph-data-science/current/algorithms/hits/index.html
+
+https://neo4j.com/docs/graph-data-science/current/algorithms/community/

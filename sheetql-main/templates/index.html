@@ -377,26 +377,26 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active">
+				<!-- <li class="nav-item active">
 					<a class="nav-link hvr-underline-reveal" href="#" id="shownav">Execute <span
 							class="sr-only">(current)</span></a>
 
-				</li>
+				</li> -->
 				<li class="nav-item active">
-					<a class="nav-link hvr-underline-reveal" href="#">Format <span class="sr-only">(current)</span></a>
+					<a class="nav-link hvr-underline-reveal mr-4" href="/lda">LDA Topic Modelling<span class="sr-only">(current)</span></a>
 
 				</li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link" id="test1" href="#">test1</a>
-				</li>
+				</li> -->
 
 				<!-- <button class = "btn btn-light tablefull" onmousedown = "(function() {$(this).css('display','none'); })()"><i class= "fa fa-times"></i></button>  -->
 
-
+<!-- 
 				<li class="nav-item">
 					<a class="nav-link" id="test2" href="page.html">hello</a>
-				</li>
-				<li class="nav-item dropdown">
+				</li> -->
+				<!-- <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Dropdown
@@ -410,13 +410,13 @@
 				</li>
 				<li class="nav-item mr-4">
 					<a class="nav-link disabled" href="#">Disabled</a>
-				</li>
+				</li> -->
 
 			</ul>
 
 			<!-- <button class= "btn btn-success mr-4" data-toggle="modal" data-target="#myModal" id = "upload">Upload Sheets </button> -->
 
-
+<!-- 
 			<form id="fileform" class="md-form" method="POST" enctype="multipart/form-data">
 
 				<input class="btn btn-light text-dark" class="btn btn-sm " type="file" name="files[]" multiple="true">
@@ -424,7 +424,7 @@
 			</form>
 			<button class="btn btn-success mr-4 uploadbutton" style="display:none;" id="upload-file-btn">Submit</button>
 
-			<button class="btn btn-success mr-4 uploadbutton" id="upload">Upload</button>
+			<button class="btn btn-success mr-4 uploadbutton" id="upload">Upload</button> -->
 
 			<button class="btn btn-light btn-sm" style="border-radius:100%;"> <i class="fa fa-user"
 					style="font-size:1.2rem;border:solid;border-radius:45%;color:green; padding:5px 5px 5px 5px;"></i>
@@ -496,7 +496,11 @@ select * from Data_dump;
 
 						</textarea> -->
 <div class = "row d-flex">
-						<div class="form-check form-check-inline ml-auto">
+	<div class="form-check form-check-inline ml-auto">
+		<input class="form-check-input ml-auto" type="radio" name="inlineRadioOptions" id="inlineRadio0" value="0">
+		<label class="form-check-label" for="inlineRadio1">Recommendor</label>
+	  </div>
+						<div class="form-check form-check-inline ml-2">
 							<input class="form-check-input ml-2" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
 							<label class="form-check-label" for="inlineRadio1">Paper Title</label>
 						  </div>
@@ -600,175 +604,9 @@ select * from Data_dump;
 
 
 
-						<div class="card" style="border-top:solid grey;">
-							<div class="card-body">
-							<br>
-							<div class = "row">
-								<div class = "col-2">
-							<small class ="mr-4">Search __TERM__</small>
-						</div>
-
-						<div class = "col-10"  >
-							<h3>
-__TITLE__</h3>
-</div>
-							<hr>
-							<div class="card" style="border-top:solid grey;">
-								<div class="card-body">
-								<br>
-								<div class = "row">
-									<div class = "col-2">
-								<small class ="mr-4">Search __TERM__</small>
-							</div>
-
-							<div class = "col-10"  >
-								<h3>
-__TITLE__</h3>
-</div>
-								<hr>
-                                <div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC1_0" role="button" aria-expanded="false" aria-controls="collapseExample">‣Mixed-Precision Training for NLP and Speech Recognition with OpenSeq2Seq</button ></p><div class="collapse" id="collapseExampleC1_0"><div class="card card-body"><div class = "col-2"><small >URI</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" href="/page/2/17892">17892</a></span></div><div class = "col-2"><small >ns0__dateModified</small></div><div class = "col-10"><span class="badge badge-info mr-4">2018</span></div><div class = "col-2"><small >ns0__datePublished</small></div><div class = "col-10"><span class="badge badge-info mr-4">2018</span></div><div class = "col-2"><small >ns0__url</small></div><div class = "col-10"><span class="badge badge-info mr-4">http://arxiv.org/abs/1805.10387v2</span></div></div></div></div><div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC1_1" role="button" aria-expanded="false" aria-controls="collapseExample">‣A Joint Many-Task Model: Growing a Neural Network for Multiple NLP Tasks</button ></p><div class="collapse" id="collapseExampleC1_1"><div class="card card-body"><div class = "col-2"><small >URI</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" href="/page/2/20015">20015</a></span></div><div class = "col-2"><small >ns0__dateModified</small></div><div class = "col-10"><span class="badge badge-info mr-4">2017</span></div><div class = "col-2"><small >ns0__datePublished</small></div><div class = "col-10"><span class="badge badge-info mr-4">2016</span></div><div class = "col-2"><small >ns0__url</small></div><div class = "col-10"><span class="badge badge-info mr-4">http://scholar.google.com/scholar?oi=bibs&cluster=3437546579340829684&btnI=1&nossl=1&hl=en&oe=ASCII</span></div></div></div></div><div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC1_2" role="button" aria-expanded="false" aria-controls="collapseExample">‣BERT Rediscovers the Classical NLP Pipeline</button ></p><div class="collapse" id="collapseExampleC1_2"><div class="card card-body"><div class = "col-2"><small >URI</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" href="/page/2/20216">20216</a></span></div><div class = "col-2"><small >ns0__dateModified</small></div><div class = "col-10"><span class="badge badge-info mr-4">2019</span></div><div class = "col-2"><small >ns0__datePublished</small></div><div class = "col-10"><span class="badge badge-info mr-4">2019</span></div><div class = "col-2"><small >ns0__url</small></div><div class = "col-10"><span class="badge badge-info mr-4">http://scholar.google.com/scholar?oi=bibs&cluster=249564336075756665&btnI=1&nossl=1&hl=en&oe=ASCII</span></div></div></div></div><div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC1_3" role="button" aria-expanded="false" aria-controls="collapseExample">‣Energy and Policy Considerations for Deep Learning in NLP</button ></p><div class="collapse" id="collapseExampleC1_3"><div class="card card-body"><div class = "col-2"><small >URI</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" href="/page/2/20201">20201</a></span></div><div class = "col-2"><small >ns0__dateModified</small></div><div class = "col-10"><span class="badge badge-info mr-4">2019</span></div><div class = "col-2"><small >ns0__datePublished</small></div><div class = "col-10"><span class="badge badge-info mr-4">2019</span></div><div class = "col-2"><small >ns0__url</small></div><div class = "col-10"><span class="badge badge-info mr-4">http://scholar.google.com/scholar?oi=bibs&cluster=1758095683412713863&btnI=1&nossl=1&hl=en&oe=ASCII</span></div></div></div></div><div class = "col-12"><p><button class="btn btn-block btn-light text-left" data-toggle="collapse" href="#collapseExampleC1_4" role="button" aria-expanded="false" aria-controls="collapseExample">‣How Transferable are Neural Networks in NLP Applications?</button ></p><div class="collapse" id="collapseExampleC1_4"><div class="card card-body"><div class = "col-2"><small >URI</small></div><div class = "col-10"><span class="badge badge-info mr-4"><a style="color:white;" href="/page/2/20080">20080</a></span></div><div class = "col-2"><small >ns0__dateModified</small></div><div class = "col-10"><span class="badge badge-info mr-4">2016</span></div><div class = "col-2"><small >ns0__datePublished</small></div><div class = "col-10"><span class="badge badge-info mr-4">2016</span></div><div class = "col-2"><small >ns0__url</small></div><div class = "col-10"><span class="badge badge-info mr-4">http://scholar.google.com/scholar?oi=bibs&cluster=7464971160910138225&btnI=1&nossl=1&hl=en&oe=ASCII</span></div></div></div></div>
-							</div>
+					
 
 
-									<div class = "d-flex">
-									<p class="card-text mt-2 mr-auto"><small class="text-muted ">Results: __TOTAL__</small></p>
-									<p class="card-text mt-2 ml-auto mr-auto"><small class="text-muted "> __NUMBER__</small></p>
-											<p class="card-text mt-2 ml-auto"><small class="text-muted ">Executed at __TIME__</small></p></div>
-											
-							
-								</div>
-							
-								</div><hr>						</div>
-
-
-								<div class = "d-flex">
-								<p class="card-text mt-2 mr-auto"><small class="text-muted ">Results: __TOTAL__</small></p>
-								<p class="card-text mt-2 ml-auto mr-auto"><small class="text-muted "> __NUMBER__</small></p>
-										<p class="card-text mt-2 ml-auto"><small class="text-muted ">Executed at __TIME__</small></p></div>
-										
-						
-							</div>
-						
-							</div><hr>
-
-
-						<div class="card" style="border-top:solid grey;">
-							<div class="card-body">
-
-
-
-
-
-
-
-
-								<br>
-								<div class="row">
-									<div class="col-2">
-										<small class="mr-4">Title</small>
-									</div>
-
-									<div class="col-10">
-										<h3>
-											Universal Perturbation Attack Against Image Retrieval</h3>
-									</div>
-									<hr>
-									<div class="col-2"><small>URI</small></div>
-									<div class="col-10"><span
-											class="badge badge-info mr-4">file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/14598</span>
-									</div>
-									<div class="col-2"><small>ns1__doi</small></div>
-									<div class="col-10"><span
-											class="badge badge-info mr-4">10.1109/ICCV.2019.00500</span></div>
-									<div class="col-2"><small>ns0__dateModified</small></div>
-									<div class="col-10"><span class="badge badge-info mr-4">2019</span></div>
-									<div class="col-2"><small>ns0__headline</small></div>
-									<div class="col-10"><span class="badge badge-info mr-4">Universal Perturbation
-											Attack Against Image Retrieval</span></div>
-									<div class="col-2"><small>ns0__datePublished</small></div>
-									<div class="col-10"><span class="badge badge-info mr-4">2019</span></div>
-									<div class="col-2"><small>ns0__url</small></div>
-									<div class="col-10"><span
-											class="badge badge-info mr-4">https://www.semanticscholar.org/paper/f2c782ca16a1c833e9c620a6a0f73bc7f60dcceb</span>
-									</div>
-									<div class="col-2"><small>ns1__citationVelocity</small></div>
-									<div class="col-10"><span class="badge badge-info mr-4">7</span></div>
-									<div class="col-2"><small>ns1__b_influentialCitationCount</small></div>
-									<div class="col-10"><span class="badge badge-info mr-4">2</span></div>
-									<div class="col-2"><small>Authors</small></div>
-									<div class="col-10"><span class="badge badge-info mr-4">Hong Liu</span><span
-											class="badge badge-info mr-4">Jie Li</span><span
-											class="badge badge-info mr-4">Rongrong Ji</span><span
-											class="badge badge-info mr-4">Yue Gao</span><span
-											class="badge badge-info mr-4">Qi Tian</span><span
-											class="badge badge-info mr-4">Xiaopeng Hong</span></div>
-									<div class="col-2"><small>Genres</small></div>
-									<div class="col-10"><span class="badge badge-info mr-4">cs.CV</span><span
-											class="badge badge-info mr-4">cs.CR</span><span
-											class="badge badge-info mr-4">cs.LG</span></div>
-									<div class="col-2 mt-4"><small>Abstract</small></div>
-									<div class="col-10 mt-4">
-										<p">Universal adversarial perturbations (UAPs), a.k.a. input-agnostic
-											perturbations, has been proved to exist and be able to fool cutting-edge
-											deep learning models on most of the data samples. Existing UAP methods
-											mainly focus on attacking image classification models. Nevertheless, little
-											attention has been paid to attacking image retrieval systems. In this paper,
-											we make the first attempt in attacking image retrieval systems. Concretely,
-											image retrieval attack is to make the retrieval system return irrelevant
-											images to the query at the top ranking list. It plays an important role to
-											corrupt the neighbourhood relationships among features in image retrieval
-											attack. To this end, we propose a novel method to generate retrieval-against
-											UAP to break the neighbourhood relationships of image features via degrading
-											the corresponding ranking metric. To expand the attack method to scenarios
-											with varying input sizes or untouchable network parameters, a multi-scale
-											random resizing scheme and a ranking distillation strategy are proposed. We
-											evaluate the proposed method on four widely-used image retrieval datasets,
-											and report a significant performance drop in terms of different metrics,
-											such as mAP and mP@10. Finally, we test our attack methods on the real-world
-											visual search engine, i.e., Google Images, which demonstrates the practical
-											potentials of our methods.</p>
-									</div>
-
-									<div class = "col-2"><small>Citations</small></div>
-									<div class = "col-10">
-
-
-										<p>
-											<button class="btn btn-block btn-secondary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-											  15
-											</button >
-
-										  </p>
-										  <div class="collapse" id="collapseExample">
-											<div class="card card-body">
-												<ul>
-													<li><span class = "badge badge-dark mr-4">URI1</span> The Quantum Analysis of the Trychia</li>
-													<li>URI1 The Quantum Analysis of the Trychia</li>
-
-												</ul>
-											</div>
-										  </div>
-
-
-
-									</div>
-								</div>
-
-
-								<div class="d-flex">
-									<p class="card-text mt-2 mr-auto"><small class="text-muted ">Results:
-											__TOTAL__</small></p>
-									<p class="card-text mt-2 ml-auto mr-auto"><small class="text-muted ">
-											__NUMBER__</small></p>
-									<p class="card-text mt-2 ml-auto"><small class="text-muted ">Executed at
-											__TIME__</small></p>
-								</div>
-
-
-							</div>
-
-						</div>
-						<hr> 
 
 
 
@@ -783,6 +621,15 @@ __TITLE__</h3>
 
 					<!-- TESTING DIV -->
 				</div>
+
+
+
+				<!-- 
+
+
+
+					
+				 -->
 
 
 
