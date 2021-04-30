@@ -1,0 +1,40 @@
+call n10s.rdf.import.fetch(
+'file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/papers_5.ttl','Turtle'
+    
+)
+call n10s.rdf.import.fetch(
+'file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/authors.ttl','Turtle'
+)
+call n10s.rdf.import.fetch(
+'file:///Users/rehanahmed/Documents/USC/DSCI-558%20Project/notebooks/synthetic_papers.ttl','Turtle'
+    
+)
+
+
+#
+PageRank
+
+CALL gds.graph.create(
+  'myGraph',
+  'ns0__ScholarlyArticle',
+  'ns0__citation'
+)
+
+CALL gds.pageRank.write('myGraph', {
+  maxIterations: 20,
+  dampingFactor: 0.85,
+  writeProperty: 'pagerank'
+})
+YIELD nodePropertiesWritten, ranIterations
+
+
+MATCH (n:ns0__ScholarlyArticle)
+RETURN n
+ORDER BY n.pagerank desc
+limit 50
+
+
+
+https://neo4j.com/docs/graph-data-science/current/algorithms/hits/index.html
+
+https://neo4j.com/docs/graph-data-science/current/algorithms/community/

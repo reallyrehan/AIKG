@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://localhost:5000/# -->
+<html lang="en" class="js-focus-visible" data-js-focus-visible=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+	<title>AIKG</title>
+	<link rel="stylesheet" href="./demo_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/static/style.css"> -->
+
+	<link rel="stylesheet" href="./demo_files/hover-min.css">
+	<link rel="stylesheet" href="./demo_files/neat.css">
+	<link rel="stylesheet" type="text/css" href="./demo_files/css">
+	
+	
+	
+	<link href="./demo_files/fontawesome.min.css" rel="stylesheet">
+<link href="./demo_files/solid.min.css" rel="stylesheet">
+
+
+
+
+<!--  -->
+
+<link rel="stylesheet" href="./demo_files/docs.css">
+
+<link rel="stylesheet" href="./demo_files/codemirror.css">
+<script src="./demo_files/codemirror.js"></script>
+<script src="./demo_files/matchbrackets.js"></script>
+<script src="./demo_files/sql.js"></script>
+<link rel="stylesheet" href="./demo_files/show-hint.css">
+<script src="./demo_files/show-hint.js"></script>
+<script src="./demo_files/sql-hint.js"></script>
+
+
+<!--  -->
+
+
+
+
+
+
+
+
+	<style>
+
+
+
+
+.shine {
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px; 
+  display: inline-block;
+  position: relative; 
+  
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards; 
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
+  }
+
+box {
+  height: 104px;
+  width: 100px;
+}
+
+
+
+lines {
+  height: 20px;
+  margin-top: 10px;
+  width: 100%; 
+
+}
+
+photo {
+  display: block!important;
+  width: 325px; 
+  height: 100px; 
+  margin-top: 15px;
+}
+
+@-webkit-keyframes placeholderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  
+  100% {
+    background-position: 468px 0; 
+  }
+}
+
+th {
+	text-decoration:none;
+}
+
+
+
+
+/*  */
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 250px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #F8F9FA;/* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  /* box-shadow: 5px 5px 5px 5px rgb(172, 170, 170); */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffffff;
+  display: block;
+  font-family:Roboto;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #ffffff;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.hvr-underline-reveal:before{content:"";position:absolute;z-index:-1;left:0;right:0;bottom:0;background:#00BA34;height:4px;-webkit-transform:translateY(4px);transform:translateY(4px);-webkit-transition-property:transform;transition-property:transform;-webkit-transition-duration:.3s;transition-duration:.3s;-webkit-transition-timing-function:ease-out;transition-timing-function:ease-out}
+
+
+.CodeMirror{
+	font-size:14px;
+	height:135px;
+	border:solid;
+	border-color:lightgrey;
+	border-style:dashed;
+	border-left:solid lightgrey;
+	border-inline-start-width: 6px;
+	margin-left:6rem;
+	
+}
+.CodeMirror:hover{
+	border-color:rgb(187, 187, 187);
+}
+
+
+/* .container,.sidenav,nav{
+	filter:invert(100%);
+} */
+#calc,#format{
+	color:green;
+}
+#calc:hover,#format:hover{
+	background-color:green;
+	color:white;
+}
+
+#stop{
+	color:green;
+}
+
+#stop:hover{
+	background-color: red;
+	color:white;
+}
+#stop:disabled{
+	opacity:30%;
+}
+#stop:disabled:hover{
+	color:green;
+	background-color: white;
+}
+#shownav{
+	color:lightgrey;
+}
+#shownav:hover{
+	color:black;
+	
+}
+#hidenav{
+	
+	border:none; background-color:#F8F9FA;font-size:20px;position: absolute; margin-left:215px;padding-top:-50px;margin-top:-10px; color:lightgray;
+}
+#hidenav:hover{
+	color:black;
+}
+
+table {
+  
+  position: relative;
+  border-collapse: collapse; 
+  
+}
+.tablediv{
+	margin-top:0px;
+	padding-top:0px;
+	border:solid lightgrey;
+}
+.tablediv:hover{
+	box-shadow: 2px 2px 2px 2px rgb(172, 170, 170);
+}
+
+th {
+	font-weight: bold;
+
+	
+  background: white;
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
+}
+
+
+.uploadbuttonuploadbutton:hover{
+	color:#F8F9FA;
+	
+	background-color:green;
+}
+.uploadbutton{
+	color:green;
+	
+	background-color: #F8F9FA;
+}
+/* TESTINGDIV */
+
+/* TESTINGDIV */
+#fileform {
+    display: none;
+}
+
+
+/*  */
+	</style>
+<style type="text/css">
+@font-face {
+  font-weight: 400;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Medium-d74eac43c78bd5852478998ce63dceb3.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Bold-83b8ceaf77f49c7cffa44107561909e4.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2') format('woff2');
+}</style></head>
+
+
+<body style="background-color:#EEEEEE"><div id="myModal" class="modal fade " role="dialog">
+	<div class="modal-dialog modal-xl ">
+
+		<!-- Modal content-->
+		<div class="modal-content ">
+
+			<div class="modal-body">
+				<div class="row">
+					<div class="col d-flex">
+						<h1 class="ml-auto mr-auto text-muted" style="margin-bottom:-10px;"><b>File Uploader</b></h1>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-2"><p class="text-muted">#</p></div>
+					<div class="col-2"><p class="text-muted">Name</p></div>
+					<div class="col-2"><p class="text-muted">Type</p></div>
+					<div class="col-2"><p class="text-muted">Sheet Name(s)</p></div>
+					<div class="col-2"><p class="text-muted">Selective</p></div>
+					<div class="col-2"><p class="text-muted">All</p></div>
+				</div>
+
+
+
+
+				<form class="md-form" id="modalform" method="POST" enctype="multipart/form-data">
+					
+					
+
+
+
+
+
+					<hr>
+					<div class="row">
+						<div class="col d-flex">
+							<input class="btn btn-sm btn-success ml-auto mr-auto" type="submit">
+						</div>
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" id="shownav" href="http://localhost:5000/#"><i class="fa fa-bars" aria-hidden="true"></i>
+		</a>
+		<h1 class="ml-4 " style="margin-top:-10px; margin-bottom:-10px;"><b><a class="text-dark text-muted " href="http://localhost:5000/" style="font-size:1.5rem;">AIKG</a></b></h1>
+		
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav ml-auto">
+			<li class="nav-item active">
+			  <a class="nav-link hvr-underline-reveal" href="http://localhost:5000/#" id="shownav">Execute <span class="sr-only">(current)</span></a>
+
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link hvr-underline-reveal" href="http://localhost:5000/#">Format <span class="sr-only">(current)</span></a>
+  
+			  </li>
+			<li class="nav-item">
+			  <a class="nav-link" id="test1" href="http://localhost:5000/#">test1</a>
+			</li>
+
+			<!-- <button class = "btn btn-light tablefull" onmousedown = "(function() {$(this).css('display','none'); })()"><i class= "fa fa-times"></i></button>  -->
+       
+			
+			<li class="nav-item">
+				<a class="nav-link" id="test2" href="http://localhost:5000/#">hello</a>
+			  </li>
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="http://localhost:5000/#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Dropdown
+			  </a>
+			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="http://localhost:5000/#">Action</a>
+				<a class="dropdown-item" href="http://localhost:5000/#">Another action</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="http://localhost:5000/#">Something else here</a>
+			  </div>
+			</li>
+			<li class="nav-item mr-4">
+			  <a class="nav-link disabled" href="http://localhost:5000/#">Disabled</a>
+			</li>
+
+		  </ul>
+
+		  <!-- <button class= "btn btn-success mr-4" data-toggle="modal" data-target="#myModal" id = "upload">Upload Sheets </button> -->
+
+
+		<form id="fileform" class="md-form" method="POST" enctype="multipart/form-data">
+
+			<input class="btn btn-light text-dark" type="file" name="files[]" multiple="true">
+			
+		</form>
+		<button class="btn btn-success mr-4 uploadbutton" style="display:none;" id="upload-file-btn">Submit</button>
+
+		<button class="btn btn-success mr-4 uploadbutton" id="upload">Upload</button>
+
+		<button class="btn btn-light btn-sm" style="border-radius:100%;"> <i class="fa fa-user" style="font-size:1.2rem;border:solid;border-radius:45%;color:green; padding:5px 5px 5px 5px;"></i>
+		</button>
+		</div>
+	  </nav>
+
+	<div class="sidenav">
+		<button id="hidenav"><i class="fa fa-times " aria-hidden="true"></i>
+		</button>
+		<h1 class="ml-4 " style="margin-top:-10px; margin-bottom:-11px;"><b><a class="text-dark text-muted " href="http://localhost:5000/" style="font-size:1.5rem;"> AIKG</a></b></h1>
+
+
+
+
+	
+		<hr>
+		<small class="text-muted mb-4 ml-4"><b>Sheets</b></small>
+
+		
+		
+
+        <div class="row d-flex">
+        <div class="col">
+        <a style="border-radius:0; font-size:1rem;" class="btn btn-light text-dark btn-block chevron" data-toggle="collapse" href="http://localhost:5000/#multiCollapseExample0" role="button" aria-expanded="false" aria-controls="multiCollapseExample0"><span class="float-left"><i class="fa fa-chevron-right" aria-hidden="true"></i>
+</span> Data_dump </a>
+            <div style="width:100%; " class="collapse multi-collapse " id="multiCollapseExample0">
+            <div style="padding-bottom:0px;padding-top:10px;" class="card card-body">
+                <p><span class="float-left"> <b>Order Id</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>Customer Id</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>Order Amount (Rs)</b></span> <span class="float-right">float64</span><br><span class="float-left"> <b>Product Name</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>Category</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>Sub Category</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>Time Stamp</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>Product Quantity</b></span> <span class="float-right">int64</span><br><span class="float-left"> <b>Cummulative Price</b></span> <span class="float-right">float64</span><br><span class="float-left"> <b>SKU</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>User name</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>Customer Phone</b></span> <span class="float-right">float64</span><br><span class="float-left"> <b>City</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>Area</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>Shop</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>Lat</b></span> <span class="float-right">object</span><br><span class="float-left"> <b>Long</b></span> <span class="float-right">object</span></p>
+                 </div>
+            </div>
+            </div>
+        
+        </div>
+	
+	  </div>
+
+
+
+
+
+
+	<!-- <div class="container">
+		<div class = "row ">
+			<div class = "col-12 d-flex mt-4 mb-4">
+				<h1 class = "ml-auto mr-auto">
+				<p style="text-decoration:underline; text-decoration-color:green; text-decoration-style: double;">
+					S<sup class = "mb-4" style="font-size:small;">heet</sup>Q<sup class = "mb-4" style="font-size:small;">uery</sup>L<sup class = "mb-4" style="text-decoration-line: none; font-size:small;">anguage</sup>
+				</p>
+			</h1>
+
+			</div>
+		</div>
+	</div> -->
+
+	<!-- <div class = "container"  style="padding-left:0px; margin-left:2%;"> -->
+	<div class="container mt-4">
+
+		<div class="row mt-4">
+			
+			<div class="col-md-11" style=" padding-left:5rem;">
+			
+
+				<!-- <small id="edittext" class="text-muted mb-4">Editor</small> -->
+
+
+				<form method="post">
+			
+				
+					<!-- <textarea id="query_input" name="title" required style="width:100%;height:10rem;">
+</textarea><br><br> -->
+			
+
+					  <!-- <textarea  id="code" name="code">
+select * from Data_dump;
+
+
+
+
+						</textarea> -->
+						<div id="code"><div class="CodeMirror cm-s-neat CodeMirror-wrap CodeMirror-focused"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 7px; left: 40px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" class="focus-visible" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" data-focus-visible-added=""></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="width: 12px; pointer-events: none;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true" style="height: 12px; pointer-events: none;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 30px; margin-bottom: 0px; border-right-width: 50px; min-height: 29px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">select</span> <span class="cm-operator">*</span> <span class="cm-keyword">from</span> Data_dump</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 50px; width: 1px; border-bottom: 0px solid transparent; top: 29px;"></div><div class="CodeMirror-gutters" style="height: 79px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div></div><hr>
+					<!-- <div class = "d-flex">
+					<input class="ml-auto mr-auto btn btn-success" id="submit" name="submit" type="submit" value="Submit">
+				</div> -->
+				</form>
+				<!-- <div class = "d-flex">
+					<button id="calc" class = "ml-auto mr-auto btn btn-success">Run</button>
+
+			</div> -->
+
+
+			
+						
+						
+					  
+				
+					  
+<!-- TESTING -->
+
+<!-- https://codepen.io/umng/pen/xMXXRj SHIMMER ANIMATION -->
+
+
+
+					  <div id="results" style="width:1000px; margin-left:6rem;">
+						
+<div class="card mt-4" id="loading" style="display:none;">
+    <!-- <h5 class="card-header"><lines class="shine ml-auto mr-auto"></lines></h5> -->
+    <div class="card-body">
+		<div class="row ">
+			<div class="col-12 d-flex">
+				<lines class="shine ml-auto mr-auto"></lines>
+				
+
+			</div></div>
+			<hr>
+			<div class="row ">
+	
+				
+				
+				<div class="col-12 d-flex">
+				<lines class="shine ml-auto mr-auto"></lines>
+				
+
+			</div>
+			<div class="col-12 d-flex">
+				<lines class="shine ml-auto mr-auto"></lines>
+				
+
+			</div>
+			<div class="col-12 d-flex">
+				<lines class="shine ml-auto mr-auto"></lines>
+				
+
+			</div>
+
+		
+	
+		
+         </div>
+                <p class="card-text mt-2"><small class="text-muted">
+
+
+				</small></p>
+
+    </div>
+
+    </div>
+						<div id="result_div"></div>
+
+
+						<!-- TESTING DIV -->
+
+
+						<!-- TESTING DIV -->
+					 </div>
+
+					 
+
+			</div>
+			<div class="col-md-1 ml-auto mt-4">
+				
+				<button class="btn btn-light mb-2" id="calc"><i class="fas fa-play "></i></button>
+				<br><button class="btn btn-light mb-2" id="stop" disabled=""><i class="fas fa-stop "></i></button>
+				<br><button class="btn btn-light" id="format"><i class="fas fa-paint-brush "></i></button>
+				
+			</div>
+
+
+
+
+		</div>
+		
+
+	</div>
+
+
+	<!--  -->
+	 
+	
+	<script>
+		document.onkeyup = function(e) {
+  if (e.ctrlKey && e.which == 13) {
+    $("#calc").click();
+  } 
+  else  if (e.ctrlKey && e.which == 8) {
+    $("#stop").click(); 
+  } 
+  else  if (e.ctrlKey && e.shiftKey && e.which == 70) {
+    $("#format").click(); 
+  } 
+};
+	</script>
+	<script>
+		 xhrPool = [];
+
+		 
+
+		window.onload = function() {
+		  var mime = 'text/x-mariadb';
+		  // get mime type
+		  if (window.location.href.indexOf('mime=') > -1) {
+			mime = window.location.href.substr(window.location.href.indexOf('mime=') + 5);
+		  }
+
+		  $("#stop").prop("disabled", true);
+
+
+		//   $("#myModal").modal('show');
+
+
+		  var options_first = null;
+		  $.ajax({
+					// url : '/api/calc?query=' +document.getElementById('code').value,
+					url : '/api/tables',
+					
+					success: function(data) {
+						
+						var options = data["result"];
+						window.editor = CodeMirror(document.getElementById('code'), {
+							value:"select * from Data_dump",
+							mode: "sql",
+							indentWithTabs: true,
+							lineWrapping:true,
+							smartIndent: true,
+							lineNumbers: true,
+							matchBrackets : true,
+							autofocus: true,
+							extraKeys: {"Ctrl-Space": "autocomplete"},
+							theme:"neat",
+							hint: CodeMirror.hint.sql,
+							hintOptions: {tables: options}
+						});
+		 
+						
+						
+					}
+				});
+
+				
+
+
+
+		};
+		</script>
+
+<!--  -->
+	
+		<script src="./demo_files/jquery-3.5.1.min.js"></script>
+		<!-- <script src="/static/custom_script.js?r="></script> -->
+		<script>
+		
+		
+		var stopRequest = function(){
+				$("#loading").css('display','none');
+				$("#calc").html('<i class="fas fa-play"></i>');
+				$("#calc").prop("disabled", false);
+				$("#stop").prop("disabled", true);
+			}
+		var startRequest = function(){
+				$("#calc").html('<i class="fas fa-circle-notch fa-spin"></i>');
+				$("#calc").prop("disabled", true);
+				$("#loading").css('display','block');
+				$("#stop").prop("disabled", false);
+			}
+
+		$(function() {
+			$('#upload-file-btn').click(function() {
+				var form_data = new FormData($('#fileform')[0]);
+				$.ajax({
+					type: 'POST',
+					url: '/upload',
+					data: form_data,
+					contentType: false,
+					cache: false,
+					processData: false,
+					success: function(data) {
+						$("#modalform").html(data["result"]);
+						$("#myModal").modal('show');
+						console.log('Success!');
+					},
+				});
+			});
+		});
+
+		$(function() {
+
+		 
+			$('#calc').click(function() {
+				
+				
+				startRequest();
+
+
+				
+				 $.ajax({
+
+
+					beforeSend: function (jqXHR, settings) {
+        			xhrPool.push(jqXHR);},
+					// url : '/api/calc?query=' +document.getElementById('code').value,
+					url : '/api/calc?query=' +window.editor.getValue(),
+
+					success: function(data) {
+				// $('#result_div').prepend(data['txt']);
+
+				$('#result_div').prepend(
+					$(data['txt']).hide().fadeIn(800)
+				);
+						
+				// $( ".tablefull" ).bind( "click", function() {
+					
+				// 	$(this).siblings(".tablediv").children("table").css({
+				// 		position: 'fixed',
+				// 		top: 0,
+				// 		right: 0,
+				// 		bottom: 0,
+				// 		left: 0,
+				// 		zIndex: 999
+						
+				// 	});
+				// 	});
+					
+
+					stopRequest();
+				
+					}
+				});
+			});
+
+
+
+			$("#hidenav").click(function(){
+				$(".sidenav").toggle();
+				
+
+				$("#edittext").css("margin-left","-200px")
+				$("#results").css("margin-left","-100px")
+				$("#results").css("width","1200px")
+				$(".CodeMirror").css("margin-left","-100px")
+				
+
+			});
+
+			
+			$(".chevron").click(function(){
+				$(this).children("span").children('i').toggleClass('fa-chevron-down fa-chevron-right');
+			});
+
+			$("#upload").click(function(){
+				$("#upload").css('display','none');
+				$("#fileform").css('display','block');
+				$("#upload-file-btn").css('display','block');
+			});
+
+
+
+
+			$("#shownav").click(function(){
+				$(".sidenav").toggle();
+				$("#edittext").css("margin-left","0px")
+				$("#results").css("margin-left","100px")
+				$("#results").css("width","1000px")
+				$(".CodeMirror").css("margin-left","6rem")
+				
+
+			});
+
+			$('#stop').click(function() {
+				
+				$.each(xhrPool, function(idx, jqXHR) {
+					jqXHR.abort();
+				});
+				stopRequest();
+
+
+			});
+
+			$('#format').click(function() {
+				
+				
+				$("#format").html('<i class="fas fa-circle-notch fa-spin"></i>');
+				$.ajax({
+					// url : '/api/calc?query=' +document.getElementById('code').value,
+					url : '/api/format?query=' +window.editor.getValue(),
+
+					success: function(data) {
+				// $('#result_div').prepend(data['txt']);
+					window.editor.setValue(data["txt"]);
+				
+				$("#format").html('<i class="fas fa-paint-brush "></i>');
+				
+					}
+				});
+			});
+		})
+		</script>
+		<script src="./demo_files/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="./demo_files/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body><loom-container id="lo-engage-ext-container"><div></div><loom-shadow classname="resolved"></loom-shadow></loom-container></html>

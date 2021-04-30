@@ -1,0 +1,1331 @@
+@prefix schema: <https://schema.org/> .
+
+<1000058> a schema:Person ;
+    schema:name "Ding Yu Peng"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ding_Yu_Peng"^^schema:URL .
+
+<1000423> a schema:Person ;
+    schema:name "Peter Wonka"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Peter_Wonka"^^schema:URL .
+
+<1000438> a schema:Person ;
+    schema:name "John Milton Miller"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/John_Milton_Miller"^^schema:URL .
+
+<1000465> a schema:Person ;
+    schema:name "Gang Hua"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Gang_Hua"^^schema:URL .
+
+<1000554> a schema:Person ;
+    schema:birthDate "1923-01-17"^^schema:Date ;
+    schema:name "David Shepherd Nivison"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/David_Shepherd_Nivison"^^schema:URL .
+
+<1000727> a schema:Person ;
+    schema:birthDate "1921-05-20"^^schema:Date ;
+    schema:name "Hao Wang (academic)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Hao_Wang_(academic)"^^schema:URL .
+
+<1000858> a schema:Person ;
+    schema:name "Vivian Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Vivian_Li"^^schema:URL .
+
+<1000905> a schema:Person ;
+    schema:name "Hui Liu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Hui_Liu"^^schema:URL .
+
+<1001195> a schema:Person ;
+    schema:name "Don Towsley (computer scientist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Don_Towsley_(computer_scientist)"^^schema:URL .
+
+<1001368> a schema:Person ;
+    schema:name "Fengqi You"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Fengqi_You"^^schema:URL .
+
+<1001393> a schema:Person ;
+    schema:name "Andrew Zisserman"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Andrew_Zisserman"^^schema:URL .
+
+<1001465> a schema:Person ;
+    schema:name "Chao-Jun Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Chao-Jun_Li"^^schema:URL .
+
+<1001488> a schema:Person ;
+    schema:birthDate "1922-10-01"^^schema:Date ;
+    schema:name "Yang Chen-Ning"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Yang_Chen-Ning"^^schema:URL .
+
+<1001527> a schema:Person ;
+    schema:name "Jiebo Luo"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jiebo_Luo"^^schema:URL .
+
+<1001549> a schema:Person ;
+    schema:name "Stuart J. Russell"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Stuart_J._Russell"^^schema:URL .
+
+<1001819> a schema:Person ;
+    schema:name "Iyad Rahwan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Iyad_Rahwan"^^schema:URL .
+
+<1002014> a schema:Person ;
+    schema:name "Xiaochun He"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xiaochun_He"^^schema:URL .
+
+<1002113> a schema:Person ;
+    schema:birthDate "1976-04-18"^^schema:Date ;
+    schema:name "Andrew Ng"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Andrew_Ng"^^schema:URL .
+
+<1002501> a schema:Person ;
+    schema:birthDate "1960-10-11"^^schema:Date ;
+    schema:name "Jitendra Malik"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jitendra_Malik"^^schema:URL .
+
+<1002525> a schema:Person ;
+    schema:birthDate "1923-05-17"^^schema:Date ;
+    schema:name "Chen-Lu Tsou"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Chen-Lu_Tsou"^^schema:URL .
+
+<1002559> a schema:Person ;
+    schema:birthDate "1973-08-04"^^schema:Date ;
+    schema:name "Matthias Kohl"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Matthias_Kohl"^^schema:URL .
+
+<1002838> a schema:Person ;
+    schema:birthDate "1951-11-05"^^schema:Date ;
+    schema:name "Wei-Shou Hu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wei-Shou_Hu"^^schema:URL .
+
+<1003152> a schema:Person ;
+    schema:name "Yvonne Chuan Fang Su"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Yvonne_Chuan_Fang_Su"^^schema:URL .
+
+<1003537> a schema:Person ;
+    schema:birthDate "1912-04-05"^^schema:Date ;
+    schema:name "Luke Chia-Liu Yuan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Luke_Chia-Liu_Yuan"^^schema:URL .
+
+<1003792> a schema:Person ;
+    schema:name "Regina Barzilay"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Regina_Barzilay"^^schema:URL .
+
+<1003880> a schema:Person ;
+    schema:birthDate "1913-04-21"^^schema:Date ;
+    schema:name "Choh Hao Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Choh_Hao_Li"^^schema:URL .
+
+<1003979> a schema:Person ;
+    schema:name "Pierre Baldi"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Pierre_Baldi"^^schema:URL .
+
+<1004127> a schema:Person ;
+    schema:name "Diego Calvanese"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Diego_Calvanese"^^schema:URL .
+
+<1004147> a schema:Person ;
+    schema:name "Sergei Gukov"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Sergei_Gukov"^^schema:URL .
+
+<1004251> a schema:Person ;
+    schema:name "Chen Jun (geographer)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Chen_Jun_(geographer)"^^schema:URL .
+
+<1004309> a schema:Person ;
+    schema:birthDate "1949-06-16"^^schema:Date ;
+    schema:name "Xu Xin (Judaic scholar)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xu_Xin_(Judaic_scholar)"^^schema:URL .
+
+<1004581> a schema:Person ;
+    schema:name "Bin Yu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Bin_Yu"^^schema:URL .
+
+<1004630> a schema:Person ;
+    schema:birthDate "1978-09-03"^^schema:Date ;
+    schema:name "Muhammad Imran Qadir"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Muhammad_Imran_Qadir"^^schema:URL .
+
+<1004908> a schema:Person ;
+    schema:birthDate "1964-05-29"^^schema:Date ;
+    schema:name "Kim Jin-soo (biologist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Kim_Jin-soo_(biologist)"^^schema:URL .
+
+<1004919> a schema:Person ;
+    schema:name "Stefano Soatto"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Stefano_Soatto"^^schema:URL .
+
+<1004922> a schema:Person ;
+    schema:name "Doina Precup"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Doina_Precup"^^schema:URL .
+
+<1005016> a schema:Person ;
+    schema:name "Xi Zhang (professor)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xi_Zhang_(professor)"^^schema:URL .
+
+<1005040> a schema:Person ;
+    schema:name "Tian Ye (mathematician)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Tian_Ye_(mathematician)"^^schema:URL .
+
+<1005048> a schema:Person ;
+    schema:name "Huimin Zhao"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Huimin_Zhao"^^schema:URL .
+
+<1005115> a schema:Person ;
+    schema:name "Dan Suciu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Dan_Suciu"^^schema:URL .
+
+<1005127> a schema:Person ;
+    schema:birthDate "1947-10-05"^^schema:Date ;
+    schema:name "Boris Katz"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Boris_Katz"^^schema:URL .
+
+<1005175> a schema:Person ;
+    schema:name "Yee Whye Teh"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Yee_Whye_Teh"^^schema:URL .
+
+<1005232> a schema:Person ;
+    schema:name "Tian Wei"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Tian_Wei"^^schema:URL .
+
+<1005698> a schema:Person ;
+    schema:birthDate "1963-12-10"^^schema:Date ;
+    schema:name "Michael Elad"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Michael_Elad"^^schema:URL .
+
+<1005717> a schema:Person ;
+    schema:name "Dong Chen"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Dong_Chen"^^schema:URL .
+
+<1005899> a schema:Person ;
+    schema:birthDate "1954-01-24"^^schema:Date ;
+    schema:name "Ting Wu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ting_Wu"^^schema:URL .
+
+<1006267> a schema:Person ;
+    schema:birthDate "1937-02-05"^^schema:Date ;
+    schema:name "Wang Xuan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wang_Xuan"^^schema:URL .
+
+<1006426> a schema:Person ;
+    schema:name "Mari Ostendorf"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Mari_Ostendorf"^^schema:URL .
+
+<1006716> a schema:Person ;
+    schema:name "Yoshua Bengio"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Yoshua_Bengio"^^schema:URL .
+
+<1006812> a schema:Person ;
+    schema:name "David Lobell"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/David_Lobell"^^schema:URL .
+
+<1006938> a schema:Person ;
+    schema:birthDate "1909-05-18"^^schema:Date ;
+    schema:name "Alexander Aigner"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Alexander_Aigner"^^schema:URL .
+
+<1007095> a schema:Person ;
+    schema:birthDate "1961-08-07"^^schema:Date ;
+    schema:name "Zhao Guochun"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Zhao_Guochun"^^schema:URL .
+
+<1007180> a schema:Person ;
+    schema:birthDate "1905-09-03"^^schema:Date ;
+    schema:name "Carl David Anderson"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Carl_David_Anderson"^^schema:URL .
+
+<1007533> a schema:Person ;
+    schema:name "Vasant Honavar"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Vasant_Honavar"^^schema:URL .
+
+<1008118> a schema:Person ;
+    schema:name "Xi Zhang (professor)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xi_Zhang_(professor)"^^schema:URL .
+
+<1008693> a schema:Person ;
+    schema:birthDate "1960-08-02"^^schema:Date ;
+    schema:name "Seth Lloyd"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Seth_Lloyd"^^schema:URL .
+
+<1008713> a schema:Person ;
+    schema:birthDate "1947-12-06"^^schema:Date ;
+    schema:name "Geoffrey Hinton"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Geoffrey_Hinton"^^schema:URL .
+
+<1008773> a schema:Person ;
+    schema:name "Ajmal Khan (botanist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ajmal_Khan_(botanist)"^^schema:URL .
+
+<1009009> a schema:Person ;
+    schema:name "Wang Yanyi"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wang_Yanyi"^^schema:URL .
+
+<1009346> a schema:Person ;
+    schema:birthDate "1985-07-19"^^schema:Date ;
+    schema:name "Yifeng Liu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Yifeng_Liu"^^schema:URL .
+
+<1009413> a schema:Person ;
+    schema:birthDate "1932-02-05"^^schema:Date ;
+    schema:name "Zhou Jun (botanist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Zhou_Jun_(botanist)"^^schema:URL .
+
+<1010091> a schema:Person ;
+    schema:birthDate "1975-05-12"^^schema:Date ;
+    schema:name "Kevin Leyton-Brown"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Kevin_Leyton-Brown"^^schema:URL .
+
+<1010257> a schema:Person ;
+    schema:birthDate "1912-04-05"^^schema:Date ;
+    schema:name "Luke Chia-Liu Yuan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Luke_Chia-Liu_Yuan"^^schema:URL .
+
+<1010285> a schema:Person ;
+    schema:name "Mirella Lapata"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Mirella_Lapata"^^schema:URL .
+
+<1010537> a schema:Person ;
+    schema:birthDate "1938-10-02"^^schema:Date ;
+    schema:name "Li Tian"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Tian"^^schema:URL .
+
+<1010897> a schema:Person ;
+    schema:name "Gang Chen (engineer)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Gang_Chen_(engineer)"^^schema:URL .
+
+<1011028> a schema:Person ;
+    schema:birthDate "1905-08-07"^^schema:Date ;
+    schema:name "B. H. St. John O'Neill"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/B._H._St._John_O'Neill"^^schema:URL .
+
+<1011073> a schema:Person ;
+    schema:birthDate "1925-01-15"^^schema:Date ;
+    schema:name "Robert Lee Gilbertson"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Robert_Lee_Gilbertson"^^schema:URL .
+
+<1011192> a schema:Person ;
+    schema:birthDate "1967-10-01"^^schema:Date ;
+    schema:name "Vince Calhoun"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Vince_Calhoun"^^schema:URL .
+
+<1011304> a schema:Person ;
+    schema:birthDate "1983-08-17"^^schema:Date ;
+    schema:name "Lei Stanley Qi"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Lei_Stanley_Qi"^^schema:URL .
+
+<1011602> a schema:Person ;
+    schema:birthDate "1951-05-30"^^schema:Date ;
+    schema:name "Minh Quang Tran"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Minh_Quang_Tran"^^schema:URL .
+
+<1011623> a schema:Person ;
+    schema:birthDate "1929-03-08"^^schema:Date ;
+    schema:name "Zeng Yi (virologist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Zeng_Yi_(virologist)"^^schema:URL .
+
+<1012117> a schema:Person ;
+    schema:name "Ian Goodfellow"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ian_Goodfellow"^^schema:URL .
+
+<1012329> a schema:Person ;
+    schema:name "Fei-Fei Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Fei-Fei_Li"^^schema:URL .
+
+<1012332> a schema:Person ;
+    schema:name "Wei Ji Ma"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wei_Ji_Ma"^^schema:URL .
+
+<1012362> a schema:Person ;
+    schema:birthDate "1956-05-30"^^schema:Date ;
+    schema:name "David A. McAllester"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/David_A._McAllester"^^schema:URL .
+
+<1012374> a schema:Person ;
+    schema:birthDate "1962-06-24"^^schema:Date ;
+    schema:name "Xiaoliang Sunney Xie"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xiaoliang_Sunney_Xie"^^schema:URL .
+
+<1012600> a schema:Person ;
+    schema:name "Peer Bork"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Peer_Bork"^^schema:URL .
+
+<1012749> a schema:Person ;
+    schema:birthDate "1966-05-28"^^schema:Date ;
+    schema:name "Ole Sigmund"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ole_Sigmund"^^schema:URL .
+
+<1013127> a schema:Person ;
+    schema:birthDate "1963-05-25"^^schema:Date ;
+    schema:name "Gui-Qiang Chen"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Gui-Qiang_Chen"^^schema:URL .
+
+<1013293> a schema:Person ;
+    schema:birthDate "1965-04-26"^^schema:Date ;
+    schema:name "Jun S. Liu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jun_S._Liu"^^schema:URL .
+
+<1013593> a schema:Person ;
+    schema:name "Arthur Andrew Hamilton"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Arthur_Andrew_Hamilton"^^schema:URL .
+
+<1013708> a schema:Person ;
+    schema:birthDate "1976-08-14"^^schema:Date ;
+    schema:name "Jan Peters (computer scientist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jan_Peters_(computer_scientist)"^^schema:URL .
+
+<1013958> a schema:Person ;
+    schema:birthDate "1988-11-30"^^schema:Date ;
+    schema:name "Wojciech Zaremba"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wojciech_Zaremba"^^schema:URL .
+
+<1013969> a schema:Person ;
+    schema:name "Kristen Grauman"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Kristen_Grauman"^^schema:URL .
+
+<1014009> a schema:Person ;
+    schema:birthDate "1884-03-21"^^schema:Date ;
+    schema:name "George David Birkhoff"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/George_David_Birkhoff"^^schema:URL .
+
+<1014205> a schema:Person ;
+    schema:birthDate "1949-10-10"^^schema:Date ;
+    schema:name "Deng Feng-Zhou"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Deng_Feng-Zhou"^^schema:URL .
+
+<1014506> a schema:Person ;
+    schema:name "Piotr Indyk"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Piotr_Indyk"^^schema:URL .
+
+<1014578> a schema:Person ;
+    schema:birthDate "1939-01-03"^^schema:Date ;
+    schema:name "Liu Chao-han"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Liu_Chao-han"^^schema:URL .
+
+<1014881> a schema:Person ;
+    schema:birthDate "1952-02-16"^^schema:Date ;
+    schema:name "Andrew Cunningham Scott"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Andrew_Cunningham_Scott"^^schema:URL .
+
+<1015217> a schema:Person ;
+    schema:name "Rachel Wilson (neurobiologist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Rachel_Wilson_(neurobiologist)"^^schema:URL .
+
+<1015657> a schema:Person ;
+    schema:birthDate "1939-11-10"^^schema:Date ;
+    schema:name "Yang Le"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Yang_Le"^^schema:URL .
+
+<1015892> a schema:Person ;
+    schema:name "Toby Walsh"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Toby_Walsh"^^schema:URL .
+
+<1016046> a schema:Person ;
+    schema:name "Wenfei Fan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wenfei_Fan"^^schema:URL .
+
+<1016064> a schema:Person ;
+    schema:birthDate "1946-12-24"^^schema:Date ;
+    schema:name "Andrew Yao"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Andrew_Yao"^^schema:URL .
+
+<1016069> a schema:Person ;
+    schema:name "Chuan He"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Chuan_He"^^schema:URL .
+
+<1016100> a schema:Person ;
+    schema:birthDate "1945-06-13"^^schema:Date ;
+    schema:name "Kamran Eshraghian"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Kamran_Eshraghian"^^schema:URL .
+
+<1016153> a schema:Person ;
+    schema:name "Liu Yan (scientist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Liu_Yan_(scientist)"^^schema:URL .
+
+<1016295> a schema:Person ;
+    schema:birthDate "1829-01-15"^^schema:Date ;
+    schema:name "John Richardson Wigham"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/John_Richardson_Wigham"^^schema:URL .
+
+<1016557> a schema:Person ;
+    schema:birthDate "1976-07-27"^^schema:Date ;
+    schema:name "Demis Hassabis"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Demis_Hassabis"^^schema:URL .
+
+<1016686> a schema:Person ;
+    schema:name "Steve Young (academic)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Steve_Young_(academic)"^^schema:URL .
+
+<1017004> a schema:Person ;
+    schema:birthDate "1986-10-23"^^schema:Date ;
+    schema:name "Andrej Karpathy"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Andrej_Karpathy"^^schema:URL .
+
+<1017094> a schema:Person ;
+    schema:name "Sudeep Sarkar"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Sudeep_Sarkar"^^schema:URL .
+
+<1017287> a schema:Person ;
+    schema:name "Dan Jurafsky"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Dan_Jurafsky"^^schema:URL .
+
+<1017710> a schema:Person ;
+    schema:birthDate "1983-08-17"^^schema:Date ;
+    schema:name "Lei Stanley Qi"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Lei_Stanley_Qi"^^schema:URL .
+
+<1017797> a schema:Person ;
+    schema:birthDate "1977-11-21"^^schema:Date ;
+    schema:name "Nieng Yan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Nieng_Yan"^^schema:URL .
+
+<1017860> a schema:Person ;
+    schema:name "Tang Xiaowei"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Tang_Xiaowei"^^schema:URL .
+
+<1018162> a schema:Person ;
+    schema:birthDate "1948-05-27"^^schema:Date ;
+    schema:name "Chen Wen-tsuen"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Chen_Wen-tsuen"^^schema:URL .
+
+<1018680> a schema:Person ;
+    schema:birthDate "1954-11-19"^^schema:Date ;
+    schema:name "Muhammad Asif Khan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Muhammad_Asif_Khan"^^schema:URL .
+
+<1019037> a schema:Person ;
+    schema:birthDate "1952-07-14"^^schema:Date ;
+    schema:name "John K. Hewitt"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/John_K._Hewitt"^^schema:URL .
+
+<1019425> a schema:Person ;
+    schema:birthDate "1970-03-04"^^schema:Date ;
+    schema:name "Michael Collins (computational linguist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Michael_Collins_(computational_linguist)"^^schema:URL .
+
+<1019501> a schema:Person ;
+    schema:name "Max Wintermark"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Max_Wintermark"^^schema:URL .
+
+<1019696> a schema:Person ;
+    schema:birthDate "1977-12-17"^^schema:Date ;
+    schema:name "Pierre-Yves Oudeyer"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Pierre-Yves_Oudeyer"^^schema:URL .
+
+<1019955> a schema:Person ;
+    schema:name "Clinton Fernandes"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Clinton_Fernandes"^^schema:URL .
+
+<1020221> a schema:Person ;
+    schema:birthDate "1923-09-01"^^schema:Date ;
+    schema:name "Mrinal Kumar Das Gupta"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Mrinal_Kumar_Das_Gupta"^^schema:URL .
+
+<1020255> a schema:Person ;
+    schema:name "Daniel Cremers"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Daniel_Cremers"^^schema:URL .
+
+<1020499> a schema:Person ;
+    schema:name "Xu Jian (engineer)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xu_Jian_(engineer)"^^schema:URL .
+
+<1021063> a schema:Person ;
+    schema:name "Li Ning (engineer)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Ning_(engineer)"^^schema:URL .
+
+<1021145> a schema:Person ;
+    schema:name "Ying-Hui Fu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ying-Hui_Fu"^^schema:URL .
+
+<1021238> a schema:Person ;
+    schema:birthDate "1942-09-22"^^schema:Date ;
+    schema:name "Wen-Hsiung Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wen-Hsiung_Li"^^schema:URL .
+
+<1021285> a schema:Person ;
+    schema:birthDate "1963-06-14"^^schema:Date ;
+    schema:name "Markus Gross"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Markus_Gross"^^schema:URL .
+
+<1021551> a schema:Person ;
+    schema:name "Howell Tong"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Howell_Tong"^^schema:URL .
+
+<1021562> a schema:Person ;
+    schema:birthDate "1962-10-09"^^schema:Date ;
+    schema:name "Shou-Wu Zhang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Shou-Wu_Zhang"^^schema:URL .
+
+<1021720> a schema:Person ;
+    schema:name "Nguyen TK Thanh"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Nguyen_TK_Thanh"^^schema:URL .
+
+<1021741> a schema:Person ;
+    schema:name "Tian Ye (mathematician)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Tian_Ye_(mathematician)"^^schema:URL .
+
+<1021823> a schema:Person ;
+    schema:birthDate "1947-09-11"^^schema:Date ;
+    schema:name "Tomaso Poggio"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Tomaso_Poggio"^^schema:URL .
+
+<1021965> a schema:Person ;
+    schema:name "Sung-Mo Kang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Sung-Mo_Kang"^^schema:URL .
+
+<1022038> a schema:Person ;
+    schema:name "M. Shahid Alam"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/M._Shahid_Alam"^^schema:URL .
+
+<1022297> a schema:Person ;
+    schema:name "Bryn Williams-Jones"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Bryn_Williams-Jones"^^schema:URL .
+
+<1022379> a schema:Person ;
+    schema:name "Sanjeev Arora"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Sanjeev_Arora"^^schema:URL .
+
+<1022459> a schema:Person ;
+    schema:birthDate "1968-04-11"^^schema:Date ;
+    schema:name "Cheng Xu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Cheng_Xu"^^schema:URL .
+
+<1022583> a schema:Person ;
+    schema:name "Ming-Ming Zhou"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ming-Ming_Zhou"^^schema:URL .
+
+<1022626> a schema:Person ;
+    schema:birthDate "1944-04-15"^^schema:Date ;
+    schema:name "Malay Ghosh"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Malay_Ghosh"^^schema:URL .
+
+<1022733> a schema:Person ;
+    schema:name "Nando de Freitas"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Nando_de_Freitas"^^schema:URL .
+
+<1022790> a schema:Person ;
+    schema:name "Ma Jun (engineer)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ma_Jun_(engineer)"^^schema:URL .
+
+<1022976> a schema:Person ;
+    schema:birthDate "1977-07-10"^^schema:Date ;
+    schema:name "Louis-Philippe Morency"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Louis-Philippe_Morency"^^schema:URL .
+
+<1023222> a schema:Person ;
+    schema:name "Xi Yin"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xi_Yin"^^schema:URL .
+
+<1023244> a schema:Person ;
+    schema:name "Martin M. Wattenberg"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Martin_M._Wattenberg"^^schema:URL .
+
+<1023356> a schema:Person ;
+    schema:birthDate "1971-03-07"^^schema:Date ;
+    schema:name "Milan Vojnovic"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Milan_Vojnovic"^^schema:URL .
+
+<1023659> a schema:Person ;
+    schema:birthDate "1971-07-13"^^schema:Date ;
+    schema:name "Peter Stone (professor)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Peter_Stone_(professor)"^^schema:URL .
+
+<1023812> a schema:Person ;
+    schema:birthDate "1920-02-04"^^schema:Date ;
+    schema:name "Li Rong (linguist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Rong_(linguist)"^^schema:URL .
+
+<1023895> a schema:Person ;
+    schema:birthDate "1864-09-06"^^schema:Date ;
+    schema:name "Charles Otto Blagden"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Charles_Otto_Blagden"^^schema:URL .
+
+<1024088> a schema:Person ;
+    schema:name "Emily Ying Yang Chan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Emily_Ying_Yang_Chan"^^schema:URL .
+
+<1024116> a schema:Person ;
+    schema:name "Wei Biao Wu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wei_Biao_Wu"^^schema:URL .
+
+<1024145> a schema:Person ;
+    schema:birthDate "1857-05-03"^^schema:Date ;
+    schema:name "Alexander Yule Fraser"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Alexander_Yule_Fraser"^^schema:URL .
+
+<1024445> a schema:Person ;
+    schema:name "Yuval Elovici"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Yuval_Elovici"^^schema:URL .
+
+<1024501> a schema:Person ;
+    schema:name "Li Xiaohong"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Xiaohong"^^schema:URL .
+
+<1024956> a schema:Person ;
+    schema:birthDate "1967-11-10"^^schema:Date ;
+    schema:name "Bedrich Benes"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Bedrich_Benes"^^schema:URL .
+
+<1025191> a schema:Person ;
+    schema:name "Simone Severini"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Simone_Severini"^^schema:URL .
+
+<1025297> a schema:Person ;
+    schema:name "Timothy Lillicrap"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Timothy_Lillicrap"^^schema:URL .
+
+<1025448> a schema:Person ;
+    schema:birthDate "1968-11-03"^^schema:Date ;
+    schema:name "Bernt Schiele"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Bernt_Schiele"^^schema:URL .
+
+<1025724> a schema:Person ;
+    schema:birthDate "1947-08-25"^^schema:Date ;
+    schema:name "Tse Wen Chang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Tse_Wen_Chang"^^schema:URL .
+
+<1025770> a schema:Person ;
+    schema:birthDate "1938-04-28"^^schema:Date ;
+    schema:name "Lu Jeu Sham"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Lu_Jeu_Sham"^^schema:URL .
+
+<1026146> a schema:Person ;
+    schema:name "Greg Turk"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Greg_Turk"^^schema:URL .
+
+<1026265> a schema:Person ;
+    schema:name "Hui Zou"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Hui_Zou"^^schema:URL .
+
+<1026425> a schema:Person ;
+    schema:name "Mehran Sahami"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Mehran_Sahami"^^schema:URL .
+
+<1026571> a schema:Person ;
+    schema:birthDate "1943-06-08"^^schema:Date ;
+    schema:name "Li Wei (computer scientist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Wei_(computer_scientist)"^^schema:URL .
+
+<1026726> a schema:Person ;
+    schema:name "Daniel Colón-Ramos"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Daniel_Colón-Ramos"^^schema:URL .
+
+<1027088> a schema:Person ;
+    schema:birthDate "1915-09-20"^^schema:Date ;
+    schema:name "James M. Harrison"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/James_M._Harrison"^^schema:URL .
+
+<1027195> a schema:Person ;
+    schema:birthDate "1949-04-04"^^schema:Date ;
+    schema:name "Shing-Tung Yau"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Shing-Tung_Yau"^^schema:URL .
+
+<1027368> a schema:Person ;
+    schema:name "Sergio Boixo"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Sergio_Boixo"^^schema:URL .
+
+<1027597> a schema:Person ;
+    schema:birthDate "1868-02-20"^^schema:Date ;
+    schema:name "John Christopher Willis"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/John_Christopher_Willis"^^schema:URL .
+
+<1027922> a schema:Person ;
+    schema:birthDate "1961-08-15"^^schema:Date ;
+    schema:name "Isabelle Guyon"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Isabelle_Guyon"^^schema:URL .
+
+<1028056> a schema:Person ;
+    schema:name "Alan Yuille"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Alan_Yuille"^^schema:URL .
+
+<1028089> a schema:Person ;
+    schema:name "Dieter Fox"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Dieter_Fox"^^schema:URL .
+
+<1028268> a schema:Person ;
+    schema:name "Reza Derakhshani"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Reza_Derakhshani"^^schema:URL .
+
+<1028463> a schema:Person ;
+    schema:name "Zhong Lin Wang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Zhong_Lin_Wang"^^schema:URL .
+
+<1028565> a schema:Person ;
+    schema:birthDate "1972-01-21"^^schema:Date ;
+    schema:name "Xiaowei Zhuang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xiaowei_Zhuang"^^schema:URL .
+
+<1028609> a schema:Person ;
+    schema:birthDate "1964-01-16"^^schema:Date ;
+    schema:name "Hans-Walter Rix"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Hans-Walter_Rix"^^schema:URL .
+
+<1028779> a schema:Person ;
+    schema:name "Holly Rushmeier"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Holly_Rushmeier"^^schema:URL .
+
+<1028898> a schema:Person ;
+    schema:birthDate "1939-01-03"^^schema:Date ;
+    schema:name "Liu Chao-han"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Liu_Chao-han"^^schema:URL .
+
+<1028968> a schema:Person ;
+    schema:birthDate "1943-06-08"^^schema:Date ;
+    schema:name "Li Wei (computer scientist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Wei_(computer_scientist)"^^schema:URL .
+
+<1028971> a schema:Person ;
+    schema:name "Jing-shen Tao"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jing-shen_Tao"^^schema:URL .
+
+<1029157> a schema:Person ;
+    schema:name "Deboleena Roy"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Deboleena_Roy"^^schema:URL .
+
+<1029312> a schema:Person ;
+    schema:birthDate "1966-03-21"^^schema:Date ;
+    schema:name "Changjoon Justin Lee"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Changjoon_Justin_Lee"^^schema:URL .
+
+<1029337> a schema:Person ;
+    schema:birthDate "1949-06-16"^^schema:Date ;
+    schema:name "Xu Xin (Judaic scholar)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xu_Xin_(Judaic_scholar)"^^schema:URL .
+
+<1029552> a schema:Person ;
+    schema:birthDate "1971-08-01"^^schema:Date ;
+    schema:name "Philipp Koehn"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Philipp_Koehn"^^schema:URL .
+
+<1029712> a schema:Person ;
+    schema:birthDate "1941-09-10"^^schema:Date ;
+    schema:name "Stephen Jay Gould"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Stephen_Jay_Gould"^^schema:URL .
+
+<1029783> a schema:Person ;
+    schema:birthDate "1966-04-07"^^schema:Date ;
+    schema:name "Ayesha Siddiqa"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ayesha_Siddiqa"^^schema:URL .
+
+<1030085> a schema:Person ;
+    schema:birthDate "1979-07-28"^^schema:Date ;
+    schema:name "Cha Meeyoung"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Cha_Meeyoung"^^schema:URL .
+
+<1030241> a schema:Person ;
+    schema:name "Jin Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jin_Li"^^schema:URL .
+
+<1030275> a schema:Person ;
+    schema:name "Philip Marcus Levy"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Philip_Marcus_Levy"^^schema:URL .
+
+<1030350> a schema:Person ;
+    schema:name "Li Minqi"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Minqi"^^schema:URL .
+
+<1030407> a schema:Person ;
+    schema:name "Alexander Raake"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Alexander_Raake"^^schema:URL .
+
+<1030784> a schema:Person ;
+    schema:birthDate "1951-08-09"^^schema:Date ;
+    schema:name "Tom M. Mitchell"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Tom_M._Mitchell"^^schema:URL .
+
+<1031266> a schema:Person ;
+    schema:name "Surya Ganguli"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Surya_Ganguli"^^schema:URL .
+
+<1031267> a schema:Person ;
+    schema:birthDate "1946-07-08"^^schema:Date ;
+    schema:name "Michael Julian Drake"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Michael_Julian_Drake"^^schema:URL .
+
+<1031588> a schema:Person ;
+    schema:birthDate "1930-04-29"^^schema:Date ;
+    schema:name "Wang Yuan (mathematician)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wang_Yuan_(mathematician)"^^schema:URL .
+
+<1031635> a schema:Person ;
+    schema:birthDate "1966-10-05"^^schema:Date ;
+    schema:name "Sean M. Carroll"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Sean_M._Carroll"^^schema:URL .
+
+<1031895> a schema:Person ;
+    schema:name "Ping Zhang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ping_Zhang"^^schema:URL .
+
+<1032227> a schema:Person ;
+    schema:birthDate "1923-10-31"^^schema:Date ;
+    schema:name "Li Lin (physicist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Lin_(physicist)"^^schema:URL .
+
+<1032408> a schema:Person ;
+    schema:birthDate "1968-04-11"^^schema:Date ;
+    schema:name "Cheng Xu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Cheng_Xu"^^schema:URL .
+
+<1032616> a schema:Person ;
+    schema:name "Demetri Terzopoulos"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Demetri_Terzopoulos"^^schema:URL .
+
+<1032819> a schema:Person ;
+    schema:name "Naftali Tishby"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Naftali_Tishby"^^schema:URL .
+
+<1032848> a schema:Person ;
+    schema:birthDate "1953-04-07"^^schema:Date ;
+    schema:name "Wei-min Hao"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wei-min_Hao"^^schema:URL .
+
+<1032854> a schema:Person ;
+    schema:name "Min Chiu Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Min_Chiu_Li"^^schema:URL .
+
+<1033125> a schema:Person ;
+    schema:name "Narendra Ahuja"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Narendra_Ahuja"^^schema:URL .
+
+<1033352> a schema:Person ;
+    schema:name "Lihong V. Wang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Lihong_V._Wang"^^schema:URL .
+
+<1033417> a schema:Person ;
+    schema:name "Shane Legg"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Shane_Legg"^^schema:URL .
+
+<1033582> a schema:Person ;
+    schema:birthDate "1945-10-24"^^schema:Date ;
+    schema:name "Takeo Kanade"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Takeo_Kanade"^^schema:URL .
+
+<1033927> a schema:Person ;
+    schema:name "Catherine Havasi"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Catherine_Havasi"^^schema:URL .
+
+<1034083> a schema:Person ;
+    schema:birthDate "1890-09-23"^^schema:Date ;
+    schema:name "Li Shu-hua"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Shu-hua"^^schema:URL .
+
+<1034132> a schema:Person ;
+    schema:birthDate "1912-04-05"^^schema:Date ;
+    schema:name "Luke Chia-Liu Yuan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Luke_Chia-Liu_Yuan"^^schema:URL .
+
+<1034271> a schema:Person ;
+    schema:name "Wang Qi (physician)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wang_Qi_(physician)"^^schema:URL .
+
+<1034280> a schema:Person ;
+    schema:birthDate "1961-06-23"^^schema:Date ;
+    schema:name "Jinchao Xu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jinchao_Xu"^^schema:URL .
+
+<1034456> a schema:Person ;
+    schema:name "John Canny"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/John_Canny"^^schema:URL .
+
+<1034592> a schema:Person ;
+    schema:birthDate "1768-12-08"^^schema:Date ;
+    schema:name "Li Rui (mathematician)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Rui_(mathematician)"^^schema:URL .
+
+<1034600> a schema:Person ;
+    schema:birthDate "1970-02-08"^^schema:Date ;
+    schema:name "Zoubin Ghahramani"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Zoubin_Ghahramani"^^schema:URL .
+
+<1034791> a schema:Person ;
+    schema:name "Eric Xing"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Eric_Xing"^^schema:URL .
+
+<1034928> a schema:Person ;
+    schema:name "Dan Boneh"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Dan_Boneh"^^schema:URL .
+
+<1035093> a schema:Person ;
+    schema:name "Jure Leskovec"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jure_Leskovec"^^schema:URL .
+
+<1035270> a schema:Person ;
+    schema:name "Andrea Frome"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Andrea_Frome"^^schema:URL .
+
+<1035456> a schema:Person ;
+    schema:birthDate "1963-01-05"^^schema:Date ;
+    schema:name "Arvinder Singh Soin"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Arvinder_Singh_Soin"^^schema:URL .
+
+<1035535> a schema:Person ;
+    schema:birthDate "1951-01-09"^^schema:Date ;
+    schema:name "Pradeep Dubey"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Pradeep_Dubey"^^schema:URL .
+
+<1035657> a schema:Person ;
+    schema:birthDate "1953-07-29"^^schema:Date ;
+    schema:name "Jaime Carbonell"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jaime_Carbonell"^^schema:URL .
+
+<1035695> a schema:Person ;
+    schema:name "Dan Roth"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Dan_Roth"^^schema:URL .
+
+<1035926> a schema:Person ;
+    schema:birthDate "1948-05-27"^^schema:Date ;
+    schema:name "Chen Wen-tsuen"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Chen_Wen-tsuen"^^schema:URL .
+
+<1036410> a schema:Person ;
+    schema:name "Pushpak Bhattacharyya"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Pushpak_Bhattacharyya"^^schema:URL .
+
+<1036489> a schema:Person ;
+    schema:name "Max Welling"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Max_Welling"^^schema:URL .
+
+<1036528> a schema:Person ;
+    schema:name "Cheng Xiang Zhai"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Cheng_Xiang_Zhai"^^schema:URL .
+
+<1036832> a schema:Person ;
+    schema:name "Jianqing Fan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jianqing_Fan"^^schema:URL .
+
+<1036883> a schema:Person ;
+    schema:birthDate "1968-03-18"^^schema:Date ;
+    schema:name "Pedro G. Ferreira"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Pedro_G._Ferreira"^^schema:URL .
+
+<1037012> a schema:Person ;
+    schema:name "Xiao-Fan Wang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xiao-Fan_Wang"^^schema:URL .
+
+<1037215> a schema:Person ;
+    schema:name "Chen Yutian"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Chen_Yutian"^^schema:URL .
+
+<1037764> a schema:Person ;
+    schema:name "Vinay Kumar (pathologist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Vinay_Kumar_(pathologist)"^^schema:URL .
+
+<1037874> a schema:Person ;
+    schema:name "Irfan Essa"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Irfan_Essa"^^schema:URL .
+
+<1038157> a schema:Person ;
+    schema:name "Jon Kleinberg"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jon_Kleinberg"^^schema:URL .
+
+<1038171> a schema:Person ;
+    schema:name "Dan Klein"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Dan_Klein"^^schema:URL .
+
+<1038383> a schema:Person ;
+    schema:name "Andrew McCallum"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Andrew_McCallum"^^schema:URL .
+
+<1038464> a schema:Person ;
+    schema:name "Leonidas J. Guibas"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Leonidas_J._Guibas"^^schema:URL .
+
+<1038471> a schema:Person ;
+    schema:birthDate "1964-04-03"^^schema:Date ;
+    schema:name "Hanspeter Pfister"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Hanspeter_Pfister"^^schema:URL .
+
+<1038678> a schema:Person ;
+    schema:birthDate "1897-12-28"^^schema:Date ;
+    schema:name "Zhang Xiaoqian"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Zhang_Xiaoqian"^^schema:URL .
+
+<1038765> a schema:Person ;
+    schema:birthDate "1965-05-23"^^schema:Date ;
+    schema:name "Lu Ke"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Lu_Ke"^^schema:URL .
+
+<1038902> a schema:Person ;
+    schema:name "Ashutosh Saxena"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ashutosh_Saxena"^^schema:URL .
+
+<1039189> a schema:Person ;
+    schema:birthDate "1957-01-01"^^schema:Date ;
+    schema:name "Chi-Wang Shu"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Chi-Wang_Shu"^^schema:URL .
+
+<1039231> a schema:Person ;
+    schema:birthDate "1952-11-12"^^schema:Date ;
+    schema:name "Thomas Lengauer"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Thomas_Lengauer"^^schema:URL .
+
+<1039309> a schema:Person ;
+    schema:name "Aaron Clauset"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Aaron_Clauset"^^schema:URL .
+
+<1039362> a schema:Person ;
+    schema:name "Chao-Jun Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Chao-Jun_Li"^^schema:URL .
+
+<1039488> a schema:Person ;
+    schema:name "Ming Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ming_Li"^^schema:URL .
+
+<1039530> a schema:Person ;
+    schema:birthDate "1966-06-27"^^schema:Date ;
+    schema:name "Patrick Drew McDaniel"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Patrick_Drew_McDaniel"^^schema:URL .
+
+<1039797> a schema:Person ;
+    schema:name "Raymond J. Mooney"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Raymond_J._Mooney"^^schema:URL .
+
+<1040030> a schema:Person ;
+    schema:name "Hod Lipson"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Hod_Lipson"^^schema:URL .
+
+<1040282> a schema:Person ;
+    schema:name "Rafael Royo-Torres"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Rafael_Royo-Torres"^^schema:URL .
+
+<1040326> a schema:Person ;
+    schema:birthDate "1920-09-11"^^schema:Date ;
+    schema:name "Peter Shaw Green"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Peter_Shaw_Green"^^schema:URL .
+
+<1040337> a schema:Person ;
+    schema:name "Wei Zhang (mathematician)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wei_Zhang_(mathematician)"^^schema:URL .
+
+<1040745> a schema:Person ;
+    schema:birthDate "1966-07-11"^^schema:Date ;
+    schema:name "Yan Chen (professor)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Yan_Chen_(professor)"^^schema:URL .
+
+<1041164> a schema:Person ;
+    schema:name "Muneer Ahmad Rashid"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Muneer_Ahmad_Rashid"^^schema:URL .
+
+<1041243> a schema:Person ;
+    schema:name "Tomas Mikolov"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Tomas_Mikolov"^^schema:URL .
+
+<1041274> a schema:Person ;
+    schema:birthDate "1972-04-30"^^schema:Date ;
+    schema:name "Shang-Yi Chiang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Shang-Yi_Chiang"^^schema:URL .
+
+<1041339> a schema:Person ;
+    schema:name "Jin Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jin_Li"^^schema:URL .
+
+<1041469> a schema:Person ;
+    schema:name "Shih-Fu Chang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Shih-Fu_Chang"^^schema:URL .
+
+<1041844> a schema:Person ;
+    schema:name "Richard Zemel"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Richard_Zemel"^^schema:URL .
+
+<1041949> a schema:Person ;
+    schema:name "David Blei"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/David_Blei"^^schema:URL .
+
+<1042004> a schema:Person ;
+    schema:name "Adam Tauman Kalai"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Adam_Tauman_Kalai"^^schema:URL .
+
+<1042050> a schema:Person ;
+    schema:birthDate "1957-08-13"^^schema:Date ;
+    schema:name "Wang Qiao (engineer)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wang_Qiao_(engineer)"^^schema:URL .
+
+<1042084> a schema:Person ;
+    schema:birthDate "1981-10-22"^^schema:Date ;
+    schema:name "Feng Zhang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Feng_Zhang"^^schema:URL .
+
+<1042359> a schema:Person ;
+    schema:name "Jian Yang (geneticist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jian_Yang_(geneticist)"^^schema:URL .
+
+<1042737> a schema:Person ;
+    schema:birthDate "1983-12-27"^^schema:Date ;
+    schema:name "Aaron Halfaker"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Aaron_Halfaker"^^schema:URL .
+
+<1042843> a schema:Person ;
+    schema:birthDate "1938-10-02"^^schema:Date ;
+    schema:name "Li Tian"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Tian"^^schema:URL .
+
+<1042860> a schema:Person ;
+    schema:birthDate "1919-05-12"^^schema:Date ;
+    schema:name "Wu Wenjun"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wu_Wenjun"^^schema:URL .
+
+<1043287> a schema:Person ;
+    schema:name "Melanie Mitchell"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Melanie_Mitchell"^^schema:URL .
+
+<1043622> a schema:Person ;
+    schema:birthDate "1950-09-29"^^schema:Date ;
+    schema:name "Chen Chao-long"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Chen_Chao-long"^^schema:URL .
+
+<1043989> a schema:Person ;
+    schema:birthDate "1977-03-13"^^schema:Date ;
+    schema:name "Manolis Kellis"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Manolis_Kellis"^^schema:URL .
+
+<1044019> a schema:Person ;
+    schema:birthDate "1955-07-14"^^schema:Date ;
+    schema:name "Xiaoming Wang (paleontologist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xiaoming_Wang_(paleontologist)"^^schema:URL .
+
+<1044146> a schema:Person ;
+    schema:birthDate "1943-11-12"^^schema:Date ;
+    schema:name "Klaus Fischer (mathematician)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Klaus_Fischer_(mathematician)"^^schema:URL .
+
+<1044356> a schema:Person ;
+    schema:name "Katia Sycara"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Katia_Sycara"^^schema:URL .
+
+<1044429> a schema:Person ;
+    schema:birthDate "1922-01-25"^^schema:Date ;
+    schema:name "Luigi Luca Cavalli-Sforza"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Luigi_Luca_Cavalli-Sforza"^^schema:URL .
+
+<1044711> a schema:Person ;
+    schema:name "Yong Rui"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Yong_Rui"^^schema:URL .
+
+<1044794> a schema:Person ;
+    schema:name "Pieter Abbeel"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Pieter_Abbeel"^^schema:URL .
+
+<1044842> a schema:Person ;
+    schema:name "Murray Shanahan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Murray_Shanahan"^^schema:URL .
+
+<1044859> a schema:Person ;
+    schema:name "Matthias Niessner"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Matthias_Niessner"^^schema:URL .
+
+<1045127> a schema:Person ;
+    schema:name "Ying-Cheng Lai"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ying-Cheng_Lai"^^schema:URL .
+
+<1045244> a schema:Person ;
+    schema:name "Peter Robinson (computer scientist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Peter_Robinson_(computer_scientist)"^^schema:URL .
+
+<1045386> a schema:Person ;
+    schema:name "Syed Akhter Hossain"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Syed_Akhter_Hossain"^^schema:URL .
+
+<1045572> a schema:Person ;
+    schema:birthDate "1912-07-15"^^schema:Date ;
+    schema:name "Pan Wen-Yuan"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Pan_Wen-Yuan"^^schema:URL .
+
+<1045625> a schema:Person ;
+    schema:name "Chen Chung Chang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Chen_Chung_Chang"^^schema:URL .
+
+<1045849> a schema:Person ;
+    schema:birthDate "1922-10-01"^^schema:Date ;
+    schema:name "Yang Chen-Ning"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Yang_Chen-Ning"^^schema:URL .
+
+<1046015> a schema:Person ;
+    schema:birthDate "1932-02-05"^^schema:Date ;
+    schema:name "Zhou Jun (botanist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Zhou_Jun_(botanist)"^^schema:URL .
+
+<1046045> a schema:Person ;
+    schema:birthDate "1926-09-25"^^schema:Date ;
+    schema:name "Richard Stanton-Jones"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Richard_Stanton-Jones"^^schema:URL .
+
+<1046318> a schema:Person ;
+    schema:birthDate "1958-07-09"^^schema:Date ;
+    schema:name "Nathan J. Brown (political scientist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Nathan_J._Brown_(political_scientist)"^^schema:URL .
+
+<1046525> a schema:Person ;
+    schema:name "Ilya Sutskever"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ilya_Sutskever"^^schema:URL .
+
+<1046554> a schema:Person ;
+    schema:birthDate "1946-01-03"^^schema:Date ;
+    schema:name "Liu Chen (physicist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Liu_Chen_(physicist)"^^schema:URL .
+
+<1046737> a schema:Person ;
+    schema:birthDate "1967-02-14"^^schema:Date ;
+    schema:name "Sepp Hochreiter"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Sepp_Hochreiter"^^schema:URL .
+
+<1046985> a schema:Person ;
+    schema:name "Ding Yu Peng"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ding_Yu_Peng"^^schema:URL .
+
+<1047006> a schema:Person ;
+    schema:name "Xiao-Fan Wang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Xiao-Fan_Wang"^^schema:URL .
+
+<1047048> a schema:Person ;
+    schema:name "Dimitris Metaxas"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Dimitris_Metaxas"^^schema:URL .
+
+<1047280> a schema:Person ;
+    schema:birthDate "1949-08-10"^^schema:Date ;
+    schema:name "Jiawei Han"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Jiawei_Han"^^schema:URL .
+
+<1047786> a schema:Person ;
+    schema:name "Hartmut Neven"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Hartmut_Neven"^^schema:URL .
+
+<1047868> a schema:Person ;
+    schema:birthDate "1913-04-21"^^schema:Date ;
+    schema:name "Choh Hao Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Choh_Hao_Li"^^schema:URL .
+
+<1047880> a schema:Person ;
+    schema:birthDate "1983-08-17"^^schema:Date ;
+    schema:name "Lei Stanley Qi"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Lei_Stanley_Qi"^^schema:URL .
+
+<1047898> a schema:Person ;
+    schema:name "Fei-Fei Li"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Fei-Fei_Li"^^schema:URL .
+
+<1048736> a schema:Person ;
+    schema:name "Mu-Tao Wang"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Mu-Tao_Wang"^^schema:URL .
+
+<1049069> a schema:Person ;
+    schema:name "Steve Schneider (computer scientist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Steve_Schneider_(computer_scientist)"^^schema:URL .
+
+<1049113> a schema:Person ;
+    schema:name "Lu Chen (scientist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Lu_Chen_(scientist)"^^schema:URL .
+
+<1049216> a schema:Person ;
+    schema:birthDate "1922-10-01"^^schema:Date ;
+    schema:name "Yang Chen-Ning"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Yang_Chen-Ning"^^schema:URL .
+
+<1049423> a schema:Person ;
+    schema:name "Ramesh Raskar"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Ramesh_Raskar"^^schema:URL .
+
+<1049844> a schema:Person ;
+    schema:name "Wolfram Burgard"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Wolfram_Burgard"^^schema:URL .
+
+<1050441> a schema:Person ;
+    schema:birthDate "1953-12-12"^^schema:Date ;
+    schema:name "Li Liu (archaeologist)"^^schema:Text ;
+    schema:url "http://dbpedia.org/resource/Li_Liu_(archaeologist)"^^schema:URL .
